@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Header</title>
+
+
+<link rel="stylesheet" href="css/header1.css" >
+</head>
+
+<body>
+
+<div class="menu">
+    
+    <ul>
+     <li><span><a href="#" ><h3>Home</h3></a></span></li>
+    <li><span><a href="#"><h3>Services</h3></a></span></li>
+    <li><span><a href="#" ><h3>Gallery</h3></a></span></li>
+    <li><span><a href="#"><h3>About</h3></a></span></li>
+    <li><span><a href="#"><h3>Contact</h3></a></span></li>
+    </ul>
+    </div>
+    
+	<section class="banner">
+    
+    
+    <header>
+    <h2 class="logo">Your Logo</h2>
+    <div class="toggle" onmouseover="toggleMenu();"></div>
+    </header>
+    
+   </section> 
+
+    <script type="text/javascript">
+ function toggleMenu()
+ {
+	var menuToggle= document.querySelector('.toggle');
+	var banner= document.querySelector('.banner');
+	menuToggle.classList.toggle('active');
+	banner.classList.toggle('active'); 
+ }
+ </script>
+
+
+
+</body>
+</html>

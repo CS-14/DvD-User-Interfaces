@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Header 2</title>
+
+<link rel="stylesheet" href="css/header2.css">
+
+
+</head>
+
+<body>
+
+
+<section>
+<header>
+
+<video width="1280" height="720" src="JLA.mp4" muted loop autoplay="autoplay"></video>
+<a href="#" class="logo">DVD House</a>
+<div class="toggleMenu" onmouseover="toggleMenu();"></div>
+ 
+ <ul class="navigation">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+    </ul>
+    </header>
+   
+    </section>
+    
+    
+    <script type="text/javascript"> 
+    function toggleMenu()
+    {
+    const toggleMenu = document.querySelector('.toggleMenu');
+	const navigation = document.querySelector('.navigation');
+    toggleMenu.classList.toggle('active');
+	navigation.classList.toggle('active');
+    }
+    </script>
+
+</body>
+</html>
