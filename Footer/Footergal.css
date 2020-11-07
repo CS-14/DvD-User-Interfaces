@@ -1,0 +1,151 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;	
+	
+}
+
+
+.footgal
+{
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	min-height: 100vh;
+	background:url(../Justice/Lucy1.jpg);
+	background-size:cover;
+}
+
+
+.testimonials
+{
+	position: relative;
+	max-width: 100%;
+	-webkit-box-reflect:below 1px linear-gradient(transparent 70%,#0009);
+}
+
+.swiper-slide 
+{
+      background-position: center;
+      background-size: cover;
+      width: 450px;
+	  margin: 0 20px;
+      min-height: 300px;
+	  background:#000;
+
+    }
+	
+	
+	
+.swiper-container-3d .swiper-slide-shadow-left,
+.swiper-container-3d .swiper-slide-shadow-right
+{
+    background-image:none;	
+	
+}
+
+
+
+.testimonials .card5
+{
+	position:relative;
+	width: 100%;
+	margin: 0 20px;
+	background: #333;
+	padding: 60px 40px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.testimonials .card5 .layer
+{
+	position: absolute;
+	top: calc(100%- 2px);
+	left: 0;
+	width: 100%;
+	height: 60%;
+	background: linear-gradient(#03a9f4,#e91ee3);
+	z-index: 1;
+	transition: 0.5s;
+	bottom: 0;
+}
+
+.testimonials .card5:hover .layer
+{
+	top: 0;	
+}
+
+.testimonials .card5 .content5
+{
+	position: relative;
+	z-index: 2;
+}
+
+.testimonials .card5 .content5 p
+{
+	font-size: 18px;
+	line-height: 24px;
+	margin-bottom: 20px;
+	color:#FFF;
+	
+}
+
+.testimonials .card5 .content5 .imgBx5
+{
+	
+	width:256px;
+	height:256px;
+	margin: 0 auto;
+	border-radius: 50%;
+	overflow:hidden;
+	border: 4px solid #FFF;
+	box-shadow:0 10px rgba(0,0,0,0.2);
+	background-size:contain;
+}
+
+.testimonials .card5 .content5 h2
+{
+		font-size:30px;
+		color:#FFF;	
+	
+}
+
+
+.testimonials .card5 .content5 h2 span
+{
+	
+	color:#03a9f4;
+	font-size: 20px;
+	transition: 0.5s;
+}
+
+
+.testimonials .card5:hover .content5 h2 span
+{
+	color:#FFF;
+	
+}
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
