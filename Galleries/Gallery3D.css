@@ -1,0 +1,176 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;	
+	
+}
+
+
+body
+{
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	min-height: 90vh;
+	background:url(../Justice/Lucy1.jpg);
+	background-size:cover;
+}
+
+
+.gal
+{
+	dispaly: flex;
+	justify-content: center;
+	align-items: top;
+	flex-wrap: wrap;
+	transform-style:preserve-3d;
+	width:500px;
+}
+
+ .gal .card4
+{
+	position: relative;
+	width: 270px;
+	height: 270px;
+	margin: 10px;
+	transform-style:preserve-3d;
+	perspective: 1000px;
+	
+}
+
+ .gal .card4 .box4
+{
+	position:relative;
+	top: 0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	transform-style:preserve-3d;
+	transition: 1s ease;
+	
+}
+
+ .gal .card4:hover .box4
+{
+	
+	transform: rotateY(180deg);
+}
+
+
+ .gal .card4 .box4 .imgBx4
+{
+	position:absolute;
+	top: 0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	
+}
+
+
+ .gal .card4 .box4 .imgBx4 img
+{
+	position:absolute;
+	top: 0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	object-fit:cover;
+	
+}
+
+ .gal .card4 .box4 .contentBx4
+{
+	position:absolute;
+	top: 0px;
+	left:0;
+	width: 100%;
+	height: 100%;
+	dispaly: flex;
+	justify-content: center;
+	align-items: center;
+	transform-style:preserve-3d;
+	background:#333;
+	backface-visibility:hidden;
+	transform:rotateY(180deg);
+
+	
+}
+
+ .gal .card4 .box4 .contentBx4 div
+{
+	transform-style:preserve-3d;
+	padding: 20px;
+	background:linear-gradient(45deg,#fe0061,#ffeb3b);
+	transform: translateZ(100px);
+	
+}
+
+ .gal .card4 .box4 .contentBx4 div h2
+{
+	color:#FFF;
+	font-size:20px;
+	letter-spacing: 1px;
+}
+
+ .gal .card4 .box4 .contentBx4 div p
+{
+	color:#FFF;
+	font-size:14px;
+}
+
+
+.banner2
+{ 
+    min-width: 20%;
+	width: 60%;
+	position:relative;
+	text-align: end;
+	padding-right: 40px;	
+}
+
+.banner2 .contentBx
+{
+    min-width: 50%;
+	width: 100%;
+	position:relative;
+	text-align: end;
+}
+
+.banner2 .titleText
+{
+   font-weight: 600;
+   color:#FFF;
+   font-size: 2em;
+   margin-bottom: 10px;
+   
+}
+
+.banner2 .text
+{
+   color:#FFF;
+   font-size: 1em;	
+   
+}
+
+.banner2 .btn
+{
+	z-index:1;
+	position:relative;
+	display:inline-block;
+	padding: 8px 20px;
+	background: #000;
+	margin-top: 15px;
+	text-decoration: none;
+	font-weight: 400;
+	border-radius: 20px;
+	color: #FFF;
+	transition: 0.5s;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}	

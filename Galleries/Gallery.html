@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Gallery1 </title>
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+
+<link rel="stylesheet" href="css/Gallery.css" >
+
+
+</head>
+
+<body>
+ <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" ><img src="Joker/JLA.jpg"></div>
+      <div class="swiper-slide" ><img src="Joker/JLA2.jpg" ></div>
+      <div class="swiper-slide"><img src="Joker/JLA3.jpg" ></div>
+      <div class="swiper-slide" ><img src="Joker/JLA4.jpg" ></div>
+      <div class="swiper-slide"><img src="Joker/JLA5.jpg" ></div>
+      <div class="swiper-slide"><img src="Joker/JLA6.jpg" ></div>
+      <div class="swiper-slide"><img src="Joker/JLA7.jpg" ></div>
+      <div class="swiper-slide"><img src="Joker/JLA8.jpg" ></div>
+      <div class="swiper-slide"><img src="Joker/JLA9.jpg" ></div>
+      <div class="swiper-slide"><img src="Joker/JLA10.jpg" ></div>
+    </div>
+    
+    
+    <section class="Anime">
+    <h1>
+         <span>D</span>
+          <span>V</span>
+           <span>D</span>
+            <span>H</span>
+             <span>O</span>
+              <span>U</span>
+               <span>S</span>
+                <span>E</span>
+    </h1>
+    </section>
+    
+    <br /><br /><br />
+    <section class="button">
+    <a href="#">
+          <span></span>
+          <span></span>
+           <span></span>
+            <span></span>
+            Welcome To DVD HOUSE STORE!<br /> Click Me To Continue
+            </a>
+    </section>  
+  </div>
+  
+    
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js">
+</script>
+
+<script src="css/scroll-out.js"></script>
+<script type="text/javascript">
+
+    ScrollOut({
+		
+		targets: 'h1.span'
+		
+	})
+	</script>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 200,
+        modifier: 1,
+        slideShadows: true,
+      },
+	  loop:true,
+	  autoplay: {
+        delay: 700,
+        disableOnInteraction: false,
+      },
+    });
+	
+  </script>  
+ 
+</body>
+</html>
