@@ -1,0 +1,125 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+	font-family: 'Poppins', sans-sanif;
+	
+}
+
+body{
+	
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	flex-wrap: wrap;
+	min-height: 100vh;
+	background:#010615; 
+}
+
+.container
+{
+	position:relative;
+	width:800px;
+	height: 500px;
+	background:#222;
+}
+
+.container .clip
+{
+	position:absolute;
+	top: 0;
+	width:100%;
+	height: 100%;
+	transition: 0.5s;
+}
+
+
+.container .clip.clip1
+{
+	clip-path: polygon(0 0, 51% 0, 10% 100%, 0% 100%);
+	background-size:cover;
+	background:url(../Justice/JLA12.jpg);
+		
+}
+
+
+.container .clip.clip2
+{
+	background:url(../Justice/Guradians.jpg);
+	clip-path: polygon(48% 0, 81% 0, 32% 100%, 8% 100%);
+	background-size:cover;
+	
+}
+
+
+.container .clip.clip3
+{
+	background:url(../Justice/JLA5.jpg);
+	clip-path: polygon(76% 0, 100% 0, 100% 34%, 25% 100%);
+	background-size:cover;
+		
+}
+
+.container .clip.clip4
+{
+	background:url(../Justice/Jumanji.jpg);
+	clip-path: polygon(100% 26%, 100% 30%, 100% 100%, 25% 100%);
+	background-size:cover;
+		
+}
+
+
+.container:hover .clip
+{
+	clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+	
+}
+
+.container .clip:hover
+{
+	
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+
+.content
+{
+	position:absolute;
+	bottom: -100%;
+	width:70%;
+	left: 0;
+	padding:20px;
+	background:#FFF;
+	opacity: 0;
+	transition: 0.5s;
+	border-radius: 20px;
+		
+}
+
+
+.container .clip:hover .content
+{
+	bottom: 0;
+	opacity: 1;
+	
+	
+	}
+
+
+
+
+
+
+
+
+
+
+
+
