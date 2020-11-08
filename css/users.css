@@ -1,0 +1,65 @@
+*{
+    margin: 0%;
+}
+body{
+    background-color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+header {
+background-color:rgb(199, 191, 191);   
+overflow: auto;
+padding: 10px;
+}
+header .appname
+{
+    float:left;
+}
+header .logedin {
+    float:right;
+}
+main {    
+    width:1000px;
+    margin:30px auto;
+    
+}
+main h1 {
+    margin-bottom: 20px;
+    font-size: 50px;
+}
+main h1 span{
+    font-size: 20px;
+}
+table.masterlist {
+    width:100%;
+    border-collapse: collapse;
+}
+table.masterlist th {
+    background:#aaa;
+    text-align: left; 
+}
+table.masterlist th ,table.masterlist td{
+    padding: 10px;
+    border-bottom: 1px solid #aaa;
+}   
+form.userform label {
+    width:30%;
+    float: left;  
+      
+    }
+form.userform input {
+        width:60%;
+        margin-bottom: 12px;
+}  
+form.userform button{
+    width: 200px;
+    
+}
+.errmsg{
+    margin: 20px 0;
+  
+}
+div.errmsg{
+    color: red;
+}
