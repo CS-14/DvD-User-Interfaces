@@ -87,11 +87,3 @@ else if(isset($_POST['back_btn']))
 
 ?>
 
-
-
-
-
-
-
-
-
