@@ -12,8 +12,8 @@ $Telephone ='';
 $NIC ='';
 $Email ='';
 $Addrerss ='';
-$User_Password ='';
 $user_id ='';
+$password ='';
 
 if (isset($_GET['user_id'])) {
     // getting the user information
@@ -114,11 +114,14 @@ if (isset($_GET['user_id'])) {
    
 }
 
+
 if(isset($_POST['submit']))
 {
-   // $user_id =$_POST['user_id'];
-    $User_Password =$_POST['User_Password'];
-   // $User_Type =$_POST['User_Type'];
+    $user_id =$_POST['user_id'];
+    $password =$_POST['User_Password'];
+    //$User_Type =$_POST['User_Type'];
+    
+    
 
     //checking required fileds
 
@@ -131,61 +134,55 @@ if(isset($_POST['submit']))
     $errors = array_merge($errors,check_max_length($max_length_fields));
        
 
-//add data to the table
+//modify data in  the table
 if(empty($errors)){
     // no errors found
     // to secure data use real scape function
-    
-    //$User_Type =mysqli_real_escape_string($connection,$_POST['User_Type']);
-    $User_Password  = mysqli_real_escape_string($connection,$_POST['User_Password']);
+    $password= mysqli_real_escape_string($connection,$_POST['User_Password']);
 
-    // hashed password
-    $hashed_password = sha1($User_Password);
-
-   // insert data to user table
    // modify data in user table
-   $query2 = " UPDATE users SET cpassword ='{$User_Password}' WHERE UserId ='{$user_id}' LIMIT  1";
-   $result = mysqli_query($connection , $query2); 
-  
-   if ($result){       
+    $query2 = " UPDATE users SET cpassword ='{$password}' WHERE UserId ='{$user_id}' LIMIT  1";
+    $result = mysqli_query($connection , $query2); 
+    
+    
+    if ($result){
+       
+
+            if($User_Type = 'customer'){
+                
+                $query4 = " UPDATE customer SET cpassword ='{$password}' WHERE UserId ='{$user_id}' LIMIT  1";
+                $result3 = mysqli_query($connection , $query4);
+                } 
+
+             if($User_Type = 'owner'){
+                
+                $query4 = " UPDATE owners SET OPassword ='{$password}' WHERE UserId ='{$user_id}' LIMIT  1";
+                $result3 = mysqli_query($connection , $query4);
+                } 
+
+           if($User_Type = 'admin') {
+            
+                $query4 = " UPDATE admins SET APassword ='{$password}' WHERE UserId ='{$user_id}' LIMIT  1";
+                $result3 = mysqli_query($connection , $query4);
+                } 
+
+            if($User_Type = 'cashier'){
+            
+                $query4 = " UPDATE cashiers SET Chpassword='{$password}' WHERE UserId ='{$user_id}' LIMIT  1";
+                $result3 = mysqli_query($connection , $query4);
+                } 
+   
+     }
+
+   if($result3){
+        header('Location:users-view.php ? user_modified=true');
         
-    if($User_Type = 'customer'){
-       
-       $query4 = " UPDATE customer SET cpasword='{$User_Password}'
-       WHERE UserId ='{$user_id}' LIMIT  1";
-       $result3 = mysqli_query($connection , $query4);
-       } 
-
-   if($User_Type = 'owner'){
-       
-       $query4 = " UPDATE owners SET OPassword='{$User_Password}'
-       WHERE UserId ='{$user_id}' LIMIT  1";
-       $result3 = mysqli_query($connection , $query4);
-       } 
-
-   if($User_Type = 'admin') {
-      
-    $query4 = " UPDATE admins SET APassword='{$User_Password}'
-    WHERE UserId ='{$user_id}' LIMIT  1";
-    $result3 = mysqli_query($connection , $query4);
-       } 
-
-   if($User_Type = 'cashier'){
-     
-    $query4 = " UPDATE cashiers SET ChPassword='{$User_Password}'
-    WHERE UserId ='{$user_id}' LIMIT  1";
-    $result3 = mysqli_query($connection , $query4);
-       } 
-  
-    }
-
-    if($result3){
-        header('Location:users-view.php');
-    }
+   }
     else{
-        $errors[]='Failed to modify Password!';
+        
+        $errors[]='Failed to modify data!';
+    }
 }
-
 }
 ?>
 
@@ -222,57 +219,69 @@ if(empty($errors)){
        
         <p>
                 <label for = " ">Last Name :</label>
-                <input type = "text" name ="Last_Name"<?php echo 'value ="'.$Last_Name.'"';?> >
+                <input type = "text" name ="Last_Name"<?php echo 'value ="'.$Last_Name.'"';?> disabled>
         </p>
 
         <p>
                 <label for = " ">User Name:</label>
-                <input type = "text" name = "User_Name"<?php echo 'value ="'.$User_Name.'"';?> > 
+                <input type = "text" name = "User_Name"<?php echo 'value ="'.$User_Name.'"';?>disabled > 
         </p>
 
         <p>
                 <label for = " ">User Type: </label>
-                <input type = "text" name = "User_Type"<?php echo 'value ="'.$User_Type.'"';?> > 
+                <input type = "text" name = "User_Type"<?php echo 'value ="'.$User_Type.'"';?>disabled > 
         </p>
 
         <p>
                 <label for = " ">Telephone: </label>
-                <input type = "text" name = "Telephone"<?php echo 'value ="'.$Telephone.'"';?> > 
+                <input type = "text" name = "Telephone"<?php echo 'value ="'.$Telephone.'"';?> disabled> 
         </p>
 
         <p>
                 <label for = " ">NIC: </label>
-                <input type = "text" name = "NIC"<?php echo 'value ="'.$NIC.'"';?> > 
+                <input type = "text" name = "NIC"<?php echo 'value ="'.$NIC.'"';?> disabled> 
         </p>
         
         <p>
                 <label for = " ">Addrerss: </label>
-                <input type = "text" name = "Addrerss"<?php echo 'value ="'.$Addrerss.'"';?> > 
+                <input type = "text" name = "Addrerss"<?php echo 'value ="'.$Addrerss.'"';?>disabled > 
         </p>
 
         <p>
                 <label for = " ">Email: </label>
-                <input type = "email" name = "Email"<?php echo 'value ="'.$Email.'"';?> > 
+                <input type = "email" name = "Email"<?php echo 'value ="'.$Email.'"';?> disabled> 
         </p>
 
         
         <p>
-				<label for="">User:</label>
-				<span>******</span> | <a href="change-password.php?user_id=<?php echo $user_id;?>">Change Password</a>
+				<label for="">New Password:</label>
+                <input type = "password" name = "User_Password" id ="password" > 
 		</p>
 
-        <p>   <?php echo 'Password'; ?> </p>
+        <p>
+				<label for="">Show Password:</label>
+                <input type = "Checkbox" name = "showpassword" id="showpassword" style="width:20px; height:20px;" > 
+		</p>
+        
         <p>
                 <label for = " ">&nbsp; </label>
-                <button type = "submit" name = "submit"> Save </button> 
+                <button type = "submit" name = "submit">Update </button> 
         </p>
              
         </form>
     </main> 
-
-
- </body>
+ 
+	<script src="js/jquery.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#showpassword').click(function(){
+				if ( $('#showpassword').is(':checked') ) {
+					$('#password').attr('type','text');
+				} else {
+					$('#password').attr('type','password');
+				}
+			});
+		});
+	</script>
+    </body> 
 </html>
-
-
-	
