@@ -7,9 +7,18 @@
     }
     */
     $userlist = ' ';
-
+    $search = ' ';
+    
     //getting the list of users
-    $query ="SELECT * FROM users ORDER BY UserId";
+    if(isset($_GET['search'])){
+
+        $search = mysqli_real_escape_string($connection,$_GET['search']);
+        $query ="SELECT * FROM users WHERE (utype LIKE '%{$search}%' OR UserName LIKE '%{$search}%') AND is_deleted=0 ORDER BY UserId";
+    }else{
+        $query ="SELECT * FROM users WHERE is_deleted=0 ORDER BY UserId";
+    }
+   
+    
     $users =mysqli_query($connection,$query);
 
     if( $users){
@@ -19,7 +28,7 @@
             $userlist .= "<td>{$user['utype']}</td>"; 
             $userlist .= "<td>{$user['last_login']}</td>"; 
             $userlist .= "<td><a href=\"modifyuser.php?user_id={$user['UserId']}\">Edit</a></td>" ;    
-            $userlist .= "<td><a href=\"delete-user.php?user_id={$user['UserId']}\">Delete</a></td>" ;    
+            $userlist .= "<td><a href=\"delete-user.php?user_id={$user['UserId']}\" onclick =\"return confirm('Are you sure?');\">Delete</a></td>" ;    
         }
 
     }else{
@@ -32,7 +41,7 @@
 <head>
     <meta charset ="UTF-8">
     <title>Users </title>
-    <link rel ="stylesheet" href = "css/users.css">
+    <link rel ="stylesheet" href ="css/users.css">
 </head>
 <body>
     <header>
@@ -41,7 +50,17 @@
     </header>
 
 <main>
-    <h1> Users <span><a href="adduser.php"> + Add New User </a> </span> &ensp; <span><a href="addcustomer.php"> + Add New  Customer </a> </span> </h1>
+    <h1> Users <span><a href="adduser.php"> + Add New User </a> </span> &ensp; <span><a href="addcustomer.php"> + Add New  Customer </a>&ensp; |&ensp;<a href="users-view.php">  Refresh </a></span> </h1>
+   
+   <div class ="search" style ="margin-bottom: 12px;">
+        <form action="users-view.php" method="get">         
+            <p>
+            <input type ="text" name ="search" id="" placeholder="Type User Name or User Type and Press Enter"  value="<?php echo $search;?>"  style="width :99%;"required  autofocus>
+            </p> 
+       
+        </form>
+   </div>
+
    <table class = "masterlist">
     <tr>       
         <th>User Name </th>
