@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Cart One</title>
+
+<link rel="stylesheet" href="cart.css">
+<link rel="stylesheet" href="ProductCart1.css" >
+<link rel="stylesheet" href="ShopMain_NavBar.css" >
+<link rel="stylesheet" href="ShopMain_Section.css" >
+<link rel="stylesheet" href="ShopMain_Gallery.css" >
+</head>
+
+<body>
+<header>
+    <a href="#" class="logo">DVD<span>House</span></a>
+    
+    <div class="toggle"></div>
+     <div class="toggleMenu" onmouseover="toggleMenu();"></div>
+    <ul class="navigation">
+ 	<li><a href="ShopMain.html">Home</a></li>
+    <li><a href="ShopMain.html">About</a></li>
+    <li class="cart">
+    <a href="CartOne.html">
+    <ion-icon name="basket"></ion-icon>Cart<span>0</span>
+    </a></li>
+    
+ </ul>
+ </header>
+ 
+<section class="product1">
+
+<div class ="products-container">
+    <div class="product-header">
+      <h5 class="product-title">PRODUCT</h5>
+       <h5 class="price">PRICE</h5>
+        <h5 class="quantity">QUANTITY</h5>
+         <h5 class="total">TOTAL</h5>
+         </div>
+
+         <div class ="products">
+
+         </div>
+
+</div>
+</section>
+
+   <section class="footer">
+   
+   <ul class="sci">
+     <li><a href="#"><img src="../User1/facebook.png"></a></li>
+     <li><a href="#"><img src="../User1/instagram.png"></a></li>
+     <li><a href="#"><img src="../User1/twitter.png"></a></li>
+     </ul>
+   
+   <h4 class="copyrightText">Copyright @2020 <a href="#">DVD HOUSE Production</a>. All rights deserved</h4>
+   </section>
+
+
+
+<script src="vanilla-tilt.min.js"></script>
+<script>
+ VanillaTilt.init(document.querySelectorAll(".box"), {
+		max: 25,
+		speed: 400
+	});
+</script>
+<script src="ShopCart.js"></script>
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+
+ 
+    <script type="text/javascript"> 
+    function toggleMenu()
+    {
+    const toggleMenu = document.querySelector('.toggleMenu');
+	const navigation = document.querySelector('.navigation');
+    toggleMenu.classList.toggle('active');
+	navigation.classList.toggle('active');
+    }
+    </script>
+
+
+</body>
+</html>
