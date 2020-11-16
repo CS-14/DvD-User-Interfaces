@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+
+table.masterlist {
+    width:100%;
+    border-collapse: collapse;
+}
+table.masterlist th {
+    background:#aaa;
+    text-align: left; 
+}
+table.masterlist th ,table.masterlist td{
+    padding: 10px;
+    border-bottom: 1px solid #aaa;
+}   
+.errmsg{
+    margin: 20px 0;
+  
+}
+div.errmsg{
+    color: red;
+}
+
+

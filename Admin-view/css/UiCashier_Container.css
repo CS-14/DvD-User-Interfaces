@@ -1,0 +1,210 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.fitBg
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.6;
+}
+
+.titleText
+{
+   font-weight: 600;
+   color:#FFF;
+   font-size: 2em;
+   margin-bottom: 10px;
+   
+}
+
+.text
+{
+   color:#FFF;
+   font-size: 1em;	
+   
+}
+
+.btn
+{
+	z-index:1;
+	position:relative;
+	display:inline-block;
+	padding: 8px 20px;
+	background: #000;
+	margin-top: 15px;
+	text-decoration: none;
+	font-weight: 400;
+	border-radius: 20px;
+	color: #FFF;
+	transition: 0.5s;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}	
+
+@media (max-width: 991px)
+{
+	
+	.about
+	{
+		height: 140vh;
+	}
+.banner2 .box 
+{
+	position: relative;
+	width: 150px;
+	height: 150px;
+	left: 200px;
+	top: 200px;
+}
+
+
+.banner2 .box span
+{
+
+	width: 100%;
+	height: 100%;
+	transform: rotateX(calc(var(--i)*45deg)) translateZ(200px);
+	
+}
+
+.banner2 .contentBx
+	{
+		min-width: 100%;
+		width: 100%;
+		text-align:center;
+		padding-right: 0px;	
+		left:0;
+		top:300px;
+	}
+	.banner2
+	{
+	height:130vh;	
+	}
+	
+	
+	.about1
+	{
+	   flex-direction: column;
+	}
+	.about .imgBx,
+	.about .contentBx1
+	{
+		min-width: 100%;
+		width: 100%;
+		text-align:center;
+		padding-right: 0px;	
+	}
+	
+	.about2 .imgBx2
+	{
+		min-height: 250px;	
+	}
+	
+	.about2 .imgBx2,
+	.about2 .contentBx2
+	{
+		min-width: 100%;
+		width: 100%;
+		text-align:center;
+		padding-right: 0px;	
+	}
+	
+	.about2 .imgBx2
+	{
+		min-height: 250px;	
+	}
+}
+
+
+
+.about 
+{
+   position: relative;
+   width:100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;	
+   height: 70hv;
+   background:url(../Justice/Sherlock4.jpg);
+}
+
+.about .contentBx1
+{
+    min-width: 50%;
+	width: 50%;
+	position:relative;
+	text-align: end;
+	padding-right: 40px;
+	left: 20px;
+}
+
+.titleText1
+{
+   font-weight: 600;
+   color:#FFF;
+   font-size: 2em;
+   margin-bottom: 10px;
+}
+
+.text1
+{
+   color:#FFF;
+   font-size: 1em;	
+}
+
+.about .imgBx
+{
+    position: relative;
+	min-width: 50%;
+	width: 50%;
+	min-height: 500px;	
+}
+
+
+.about2
+{
+   position: relative;
+   width:100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;	
+   height: 70hv;
+   background:url(../Justice/Sleepy2.jpg);
+}
+
+.about2 .contentBx2
+{
+    min-width: 50%;
+	width: 50%;
+	position:relative;
+	text-align: end;
+	padding-right: 30px;
+	left: 50%;
+}
+
+.titleText2
+{
+   font-weight: 600;
+   color:#FFF;
+   font-size: 2em;
+   margin-bottom: 10px;
+}
+
+.text2
+{
+   color:#FFF;
+   font-size: 1em;	
+}
+
+.about2 .imgBx2
+{
+    position:relative;
+	min-width: 50%;
+	width: 50%;
+	min-height: 500px;	
+	right:50%;
+}

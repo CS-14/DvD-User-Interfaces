@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*
+{
+	margin: 0;
+	box-sizing:border-box;
+	font-family: 'Poppins', sans-sanif;
+	scroll-behavior: smooth;	
+}
+
+body 
+{
+	background:url(../image/JLA10.jpg);
+	background-size:cover;
+	padding-top: 350px;
+}
+
+
+section
+{   
+	position: relative;
+	padding: 100px;
+}
+
+.footer
+{
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	flex-direction: column;
+	
+}
+
+.footer .sci
+{
+  position: relative;
+  display: flex;
+}
+
+.footer .sci li
+{
+	list-style:none;	
+}
+
+.footer .sci li a
+{
+	text-decoration:none;
+	margin: 0 20px;	
+}
+
+.footer .sci li a img
+{
+  filter:invert(1);	
+  max-width: 40px;
+  transform: scale(0.6);
+}
+
+.copyrightText
+{
+ 	margin-top: 20px;
+	color:#FFF;
+	font-size: 18px;
+	font-weight:300;
+	color:#666;
+	text-align:center;
+}
+
+.copyrightText a
+{
+	color:#FFF;
+	text-decoration: none;	
+}
+
+
+@media (max-width: 767px)
+{
+	section
+	{
+	   padding:40px;	
+	}
+	
+    .footer .sci li a img
+	{
+		filter:invert(1);
+		max-width:30px;
+	}
+	
+	
+
+	
+}
+

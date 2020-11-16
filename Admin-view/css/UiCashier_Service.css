@@ -1,0 +1,372 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+	font-family: 'Poppins', sans-sanif;
+	text-decoration:none;
+	
+	
+	
+}
+
+
+header 
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	padding: 40px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items:center;
+	z-index:1000;
+}
+
+
+header .logo
+{
+	color: #FFF;
+	position: relative;
+	text-transform: uppercase;	
+	font-size: 2em;
+	font-weight:700;
+	letter-spacing: 2px;
+	text-decoration:none;
+}
+
+header .logo span
+{
+	color: #37d72f;	
+}
+
+
+header .toggle
+{
+	max-width: 60px;
+	cursor:pointer;	
+}
+
+header ul 
+{
+   position: relative;
+   display: flex;	
+   justify-content: center;
+   align-items: center;
+   
+}
+
+
+section
+
+{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background:linear-gradient(235deg,#772aff,#010615,#2196f3);
+	
+}
+
+section video
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	object-fit:cover;
+}
+
+section .nav
+{
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform:translateX(-50%);
+	z-index: 100;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+section .nav li
+{
+	list-style:none;
+	cursor:pointer;
+	margin: 0 10px;
+	border-radius: 4px;
+	background: #FFF;
+	padding: 3px 3px 0;
+	opacity:0.7;
+	
+	
+}
+
+section .nav li:hover
+{
+	
+	opacity:1;
+}
+section .nav li img
+{
+   width: 120px;
+   transition: 0.5s;	
+   
+}
+
+
+section .nav li img:hover
+{
+	width:200px;	
+}
+
+
+header ul li
+{
+   position: relative;
+   list-style: none;	
+}
+
+
+header ul li a
+{
+   position: relative;
+   margin:0 15px;
+   text-decoration: none;
+   color: #FFF;
+   letter-spacing: 2px;
+   font-weight: 500px;
+   transition: 0.6s;
+   padding: 20px;
+}
+
+header ul li a:hover{
+    background-color:#CF3;
+	color:#FFF;
+	padding: 3px 5px;
+}
+
+header ul li.active a{
+	background-color: #006;
+	color::#000;
+	
+}
+
+
+.about:before
+{
+	content:'';
+	position:absolute;
+	right:0;
+	top: 0;
+	width: 400px;
+	height:100%;
+	background:url(../Justice/Plex1.jpg);
+	background-size:cover;
+	
+}
+
+.about .videoBx
+{
+	position:relative;
+	margin-left: 10px;
+	width: 100%;
+	height: 400px;
+	z-index:1;
+	padding: 0;
+	-webkit-box-reflect:below 1px linear-gradient(transparent 70%,#0009);
+	
+}
+
+.about .videoBx video
+{
+	opacity:1;
+	
+}
+
+.sci
+{
+  position: absolute;
+  z-index: 10;
+  bottom: 20px;
+  display: flex;
+  justify-content:center;
+  align-items: center;	
+ 
+}
+
+.sci li
+{
+	list-style:none;	
+}
+
+.sci li img
+{
+	transform: scale(0.5);
+	filter: invert(0);	
+}
+
+.sci li a
+{
+	display: inline-block;
+	margin-right: 20px;
+	filter:invert(1);
+}	
+
+
+.footer
+{
+	background:url(../Justice/Blindspot1.jpg);
+}
+
+.footer
+{
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	flex-direction: column;
+	max-height: 50vh;
+	
+	
+}
+
+.footer .sci
+{
+  position:absolute;
+  display: flex;
+}
+
+.footer .sci li
+{
+	list-style:none;
+	bottom:40px;	
+	
+}
+
+.footer .sci li a
+{
+	text-decoration:none;
+	margin: 0 20px;	
+}
+
+.footer .sci li a img
+{
+  filter:invert(0);	
+  max-width: 40px;
+  transform: scale(0.6);
+}
+
+.copyrightText
+{
+ 	margin-top: 80px;
+	color:#CF0;
+	font-size: 18px;
+	font-weight:300;
+	text-align:center;
+}
+
+.copyrightText a
+{
+	color:#FFF;
+	text-decoration: none;	
+}
+
+
+
+
+@media (max-width: 991px)
+{
+	
+	 header
+	{
+	   padding: 20px 50px;	
+	   z-index: 1000;
+	}
+	
+	
+	.sci
+	{
+		z-index: 1000;
+		left: initial;
+		right: 20px;
+		flex-direction: column;	
+	}
+	
+	header .navigation
+	{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: #000;
+		display: none;
+		z-index: 10;
+		justify-content:center;
+		align-items: center;
+		flex-direction: column;
+	}
+	
+	header .navigation.active
+	{
+		display:flex;
+	}
+	
+	header .navigation li a
+	{
+		font-size: 24px;
+		margin: 10px 0;	
+	}
+	
+	.toggleMenu
+	{
+		position: relative;
+		width: 30px;
+		height: 30px;
+		background:url(../Joker/menu.png);
+		background-position: center;
+		background-size: 30px;
+		background-repeat: no-repeat;
+		cursor:pointer;
+		z-index:11;	
+	}
+	
+	.toggleMenu.active
+	{
+	
+		background:url(../Joker/close.png);
+		background-position:center;
+		background-size: 25px;
+		background-repeat: no-repeat;
+	}
+	
+	.footer .sci li a img
+	{
+		filter:invert(0);
+		max-width:30px;
+	}
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+

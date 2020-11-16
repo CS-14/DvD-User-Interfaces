@@ -1,0 +1,240 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.banner2 .box 
+{
+	position: relative;
+	width: 150px;
+	height:150px;
+	left: 320px;
+	top: 150px;
+	transform-style: preserve-3d;
+	animation: animate 20s linear infinite;
+}
+
+
+@keyframes animate
+{
+     0%
+	 {
+		  transform:perspective(1000px) rotateX(0deg) rotateY(0deg);
+	 }
+	  100%
+	 {
+		
+		  transform:perspective(1000px) rotateY(360deg) rotateY(35deg);
+	 }
+}
+
+.banner2 .box span
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform-origin: center;
+	transform-style: preserve-3d;
+	transform: rotateY(calc(var(--i)*45deg)) translateZ(350px);
+	-webkit-box-reflect: below 0px linear-gradient(transparent,transparent,#0004);
+	
+}
+
+.banner2 .box span img
+{
+	 position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit:cover;
+}
+
+.banner2:after
+{
+	content: '';
+	position:absolute;
+	bottom: 15px;
+	left: 0;
+	width: 100%;
+	height: 700px;
+	z-index:-1;
+	background: linear-gradient(to bottom,#111,transparent);	
+}
+
+ .banner2 .contentBx
+{
+    min-width: 50%;
+	position:relative;
+	width: 50%;
+	text-align: end;
+	padding-right: 100px;
+	left:50%;
+
+}
+
+
+
+@media (max-width: 991px)
+{
+	
+	.banner2 .box 
+{
+	position: relative;
+	width: 150px;
+	height: 150px;
+	left: 40%;
+	top: 200px;
+}
+
+
+.banner2 .box span
+{
+
+	width: 100%;
+	height: 100%;
+	transform: rotateY(calc(var(--i)*45deg)) translateZ(300px);
+	
+}
+
+.banner2 .contentBx
+	{
+		min-width: 100%;
+		width: 100%;
+		text-align:center;
+		padding-right: 0px;	
+		left:0;
+		top:300px;
+	}
+	.banner2
+	{
+	height:130vh;	
+	}
+	
+	
+	.about1
+	{
+	   flex-direction: column;
+	}
+	.about .imgBx,
+	.about .contentBx1
+	{
+		min-width: 100%;
+		width: 100%;
+		text-align:center;
+		padding-right: 0px;	
+	}
+	
+	.about2 .imgBx2
+	{
+		min-height: 250px;	
+	}
+	
+	.about2 .imgBx2,
+	.about2 .contentBx2
+	{
+		min-width: 100%;
+		width: 100%;
+		text-align:center;
+		padding-right: 0px;	
+	}
+	
+	.about2 .imgBx2
+	{
+		min-height: 250px;	
+	}
+}
+
+
+
+.about 
+{
+   position: relative;
+   width:100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;	
+   height: 70hv;
+   background:url(../Justice/Sherlock4.jpg);
+}
+
+.about .contentBx1
+{
+    min-width: 50%;
+	width: 50%;
+	position:relative;
+	text-align: end;
+	padding-right: 40px;
+	left: 20px;
+}
+
+.titleText1
+{
+   font-weight: 600;
+   color:#FFF;
+   font-size: 2em;
+   margin-bottom: 10px;
+}
+
+.text1
+{
+   color:#FFF;
+   font-size: 1em;	
+}
+
+.about .imgBx
+{
+    position: relative;
+	min-width: 50%;
+	width: 50%;
+	min-height: 500px;	
+}
+
+
+
+
+
+.about2
+{
+   position: relative;
+   width:100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;	
+   height: 70hv;
+   background:url(../Justice/Sleepy2.jpg);
+}
+
+.about2 .contentBx2
+{
+    min-width: 50%;
+	width: 50%;
+	position:relative;
+	text-align: end;
+	padding-right: 30px;
+	left: 50%;
+}
+
+.titleText2
+{
+   font-weight: 600;
+   color:#FFF;
+   font-size: 2em;
+   margin-bottom: 10px;
+}
+
+.text2
+{
+   color:#FFF;
+   font-size: 1em;	
+}
+
+.about2 .imgBx2
+{
+    position:relative;
+	min-width: 50%;
+	width: 50%;
+	min-height: 500px;	
+	right:50%;
+}
