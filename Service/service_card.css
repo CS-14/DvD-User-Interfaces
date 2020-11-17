@@ -1,0 +1,289 @@
+@charset "utf-8";
+/* CSS Document */
+
+.service
+{
+	 background:url(../Justice/Plex1.jpg);
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	flex-wrap: wrap;
+	min-height: 90vh;
+	
+}
+.service .container2
+{
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	flex-wrap: wrap;
+	max-width: 1200px;
+	margin: 40px 0;
+	
+}
+
+.service .container2 .card2
+{
+	position:relative;
+	min-width: 320px;
+	height: 440px;
+	box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2),inset 5px -5px 15px rgba(255,255,255,0.1), 5px 5px 15px rgba(0,0,0,0.3), -5px -5px 15px rgba(255,255,255,0.1);
+	
+	border-radius: 15px;
+	margin: 30px;
+}
+
+
+.service .container2 .card2:before
+{
+	content: '';
+	position:absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: rgba(255,255,255,0.1);
+}
+
+.service .container2 .card2 .box3
+{
+	position: absolute;	
+	bottom: 20px;
+	left: 20px;
+	right: 20px;
+	top: 20px;
+	background: #2a2b2f;
+	border:2px solid #1e1f23;
+	border-radius:15px;
+	box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+	transition:0.5s;
+	overflow:hidden;
+	z-index:2;
+}
+
+.service .container2 .card2 .box3:hover
+{
+	transform: translateY(-50px);
+	box-shadow: 0 40px 70px rgba(0,0,0,0.5);	
+}
+
+
+.service .container2 .card2 .box3 .content2
+{
+	padding: 20px;
+	text-align: center;	
+}
+
+.service .container2 .card2 .box3 .content2 h2
+{
+	top: -10px;
+	right: 30px;
+	position:absolute;
+	font-size: 8em;
+	color: rgba(255,255,255,0.05);
+}
+
+.service .container2 .card2 .box3 .content2 h3
+{
+	font-size: 1.8em;
+	z-index:1;
+	color: rgba(255,255,255,0.5);
+	transition: 0.5s;
+}
+
+.service .container2 .card2 .box3 .content2 p
+{
+	font-size: 16px;
+	z-index:2;
+	font-weight:300;
+	color: rgba(255,255,255,0.5);
+	transition: 0.5s;
+}
+
+
+.service .container2 .card2 .box3 .content2 a
+{
+	z-index:2;
+	position:relative;
+	display:inline-block;
+	padding: 8px 20px;
+	background: #000;
+	margin-top: 15px;
+	text-decoration: none;
+	font-weight: 400;
+	border-radius: 20px;
+	color: #FFF;
+	transition: 0.5s;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.service .container2 .card2:nth-child(1) .box3 .content2 a
+{
+	background: #2196f3;
+}
+
+.service .container .card2:nth-child(2) .box3 .content2 a
+{
+	background:#663;
+}
+
+.service .container .card2:nth-child(3) .box3 .content2 a
+{
+	background: #FF0;
+}
+
+
+
+.about 
+{
+   position: relative;
+   width:100%;
+   display: flex;
+   top: 60px;
+   justify-content: center;
+   align-items: center;	
+   height: 50hv;
+   background:url(../Justice/Sherlock4.jpg);
+}
+
+
+
+.about .contentBx1
+{
+    min-width: 50%;
+	width: 50%;
+	position:relative;
+	text-align: end;
+	padding-right: 40px;
+	left: 20px;
+}
+
+.titleText1
+{
+   font-weight: 600;
+   color:#FFF;
+   font-size: 2em;
+   margin-bottom: 10px;
+}
+
+.text1
+{
+   color:#FFF;
+   font-size: 1em;	
+}
+
+.about .imgBx
+{
+    position: relative;
+	min-width: 50%;
+	width: 50%;
+	min-height: 500px;	
+}
+
+
+
+
+
+
+@media (max-width: 991px){
+
+
+
+.service .container2 .card2 .box3
+{
+	position:absolute;	
+	bottom: 4 px;
+	left: 0 px;
+	right: 0 px;
+	top: 4 px;
+}
+
+.service .container2
+{
+	flex-wrap: wrap;
+	max-width: 600px;
+	margin: 10px 0;
+	
+}
+
+
+.service .container2 .card2
+{
+	position:relative;
+	min-width: 500px;
+	height: 340px;
+	
+	border-radius: 15px;
+	margin: 5px;
+}
+
+.service .container2 .card2 .box3 .content2
+{
+	padding: 10px;
+}
+
+.service
+{
+	min-height: 200vh;
+	
+}
+
+
+}
+
+
+@media (max-width: 991px)
+{
+	
+	.about
+	{
+		height: 140vh;
+	}
+
+.banner2 .contentBx
+	{
+		min-width: 100%;
+		width: 100%;
+		text-align:center;
+		padding-right: 0px;	
+		left:0;
+		top:300px;
+	}
+	.banner2
+	{
+	height:130vh;	
+	}
+	
+	
+	.about1
+	{
+	   flex-direction: column;
+	}
+	.about .imgBx,
+	.about .contentBx1
+	{
+		min-width: 100%;
+		width: 100%;
+		text-align:center;
+		padding-right: 0px;	
+	}
+	
+	.about2 .imgBx2
+	{
+		min-height: 250px;	
+	}
+	
+	.about2 .imgBx2,
+	.about2 .contentBx2
+	{
+		min-width: 100%;
+		width: 100%;
+		text-align:center;
+		padding-right: 0px;	
+	}
+	
+	.about2 .imgBx2
+	{
+		min-height: 250px;	
+	}
+}
