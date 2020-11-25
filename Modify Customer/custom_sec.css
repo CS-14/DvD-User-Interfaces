@@ -1,0 +1,323 @@
+@charset "utf-8";
+/* CSS Document */
+
+.content-table
+{
+	border-collapse:collapse;
+	margin: 45px 80px;
+	font-size: 0.9em;
+	min-width: 600px;	
+	border-radius: 5px 5px 0 0;
+	overflow:hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.15);
+	
+}
+
+.content-table thead tr
+{
+	
+	background-color:#009879;
+	color:#FFF;
+	text-align: left;
+	font-weight: bold;
+}
+
+.content-table th,
+.content-table td
+{
+	
+	padding: 12px 15px;	
+}
+
+.content-table tbody tr{
+	border-bottom: 1px solid #ddd;
+	
+}
+
+
+.content-table tbody tr:nth-of-type(even)
+{
+	background-color:#f3f3f3;
+	
+}
+
+.content-table tbody tr:nth-of-type(odd)
+{
+	background-color:#0F6;
+	
+}
+
+
+.content-table tbody tr:last-of-type
+{
+	
+	border-bottom: 2px solid #009879;
+}
+
+
+
+
+div.errmsg{
+    
+	z-index:1;
+	position:relative;
+	display:inline-block;
+	padding: 8px 20px;
+	background: #000;
+	margin-top: 15px;
+	text-decoration: none;
+	font-weight: 400;
+	border-radius: 20px;
+	color: #FFF;
+	transition: 0.5s;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+footer
+{
+	position: relative;
+	display: flex;
+	justify-content:space-between;
+	width:100%;
+	height:auto;
+	background: #111;
+	padding: 50px 100px;
+	min-height:40vh;
+	background-size:cover;
+	background:url(../image/Blindspot1.jpg);
+
+}
+
+footer .container7
+{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content:space-between;
+	flex-direction: row;
+}
+
+footer .container7 .sec
+{
+	margin-right: 30px;
+}
+
+footer .container7 .sec.aboutus
+{
+	
+	width: 40%;
+}
+
+
+footer .container7 h2
+{
+	position: relative;
+	color:#fff;
+	font-weight: 500;
+	margin-bottom:15px;
+	
+}
+
+
+footer .container7 h2:before
+{
+	content: '';
+	position:absolute;
+	bottom: -5px;
+	left: 0;
+	width: 50px;
+	height: 2px;
+	background:#f00;
+}
+	
+footer p
+{
+	color: #999;
+}
+
+.sci
+{
+  display: flex;
+  margin-top: 20px;
+ 
+}
+
+.sci li
+{
+	list-style:none;	
+}
+
+
+.sci li a
+{
+	display: inline-block;
+	margin-right: 10px;
+	width: 40px;
+	height: 40px;
+	background: #222;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	text-decoration:none;
+	border-radius:4px;
+	
+}
+
+.sci li a:hover
+{
+	background: #f00;
+}
+
+.sci li a .fa
+{
+	color: #fff;
+	font-size: 20px;
+}
+
+
+.quickLinks
+{
+	position: relative;
+	width: 25%;
+}
+
+.quickLinks ul li
+{
+	color:#999;
+	text-decoration:none;
+	margin-bottom: 10px;
+	display: inline-block;
+	
+}
+
+.quickLinks ul li a:hover
+{
+	background: #f00;
+}
+
+.quickLinks ul li a
+{
+	display: inline-block;
+	width: 160px;
+	color:#FFF;
+	height: 30px;
+	background: #222;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	text-decoration:none;
+	
+}
+
+.contact
+{
+	width: calc(35% - 60px);
+	margin-right:0 !important;
+}
+
+.contact .info
+{
+	position: relative;
+}
+
+.contact .info li
+{
+	display:flex;
+	margin-bottom: 16px;
+}
+
+.contact .info li span:nth-child(1)
+{
+	color: #fff;
+	font-size:16px;
+	margin-right:10px;
+}
+
+.contact .info li span
+{
+	color:#999;
+}
+
+.contact .info li a
+{
+	color:#999;
+	text-decoration:none;
+}
+
+.contact .info li a:hover
+{
+	color:#fff;
+}
+
+.copyrightText
+{
+ 	margin-top: 30px;
+	color:#CF0;
+	font-size: 18px;
+	font-weight:300;
+	text-align:center;
+	position:relative;
+	width:100%;
+	left: -450px;
+}
+
+.copyrightText a
+{
+	color:#FFF;
+	text-decoration: none;	
+}
+
+
+@media (max-width: 991px)
+{
+	.content-table
+{
+	margin: 25px 2px;
+	font-size: 12px;
+	min-width: 400px;	
+	border-radius: 5px 5px 0 0;
+	
+}
+
+.content-table th,
+.content-table td
+{
+	
+	padding: 8px 20px;	
+}
+
+footer
+	{
+		padding:40px;
+		background-size:cover;
+
+	}
+	footer .container
+	{
+		flex-direction: column;
+	}
+	
+	footer .container .sec
+	{
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+	
+   footer .container .sec.aboutus,.quickLinks, .contact
+	{
+		width: 100%;
+		padding: 10px 30px;
+		margin-top:20px;
+	}
+	
+	.copyrightText
+	{
+		left: 0;
+		padding: 8px 20px;
+	}
+	
+	
+}
+
+	
+
