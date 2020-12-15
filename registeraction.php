@@ -21,7 +21,7 @@ $repassword = $_POST['repass'];
 // not used here
 $hashed_password =sha1($password);
 
-
+//gggggggggggggggggggggggggggggggg
 
 if(empty($utype) || empty($first_name)|| empty($last_name) || empty($user_name) || empty($cid)|| empty($email) ||empty($tele)|| empty($Address)||empty($password)|| empty($repassword))
     { echo "Please Check Inputs";}
