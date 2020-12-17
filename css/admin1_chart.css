@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+.content .contentBx img
+{
+	top: 40px;
+    left:50%;
+	width: 100%;
+	display:flex;
+	padding: 20px;
+}
+
+.content .contentBx .image2
+{
+	top: 40px;
+    right:50%;
+	width: 100%;
+	display:flex;
+	padding: 20px;
+}
