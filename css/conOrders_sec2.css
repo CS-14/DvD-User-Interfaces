@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+
+section
+
+{
+	position: relative;
+	width: 100%;
+	background: url(../image/Spies2.jpg);
+	position:relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	background-size:cover;
+	justify-content: flex-start;
+    align-items: center;
+	padding: 100px;	
+	z-index:1;
+	
+}
+
+.titleText3
+{
+   font-weight: 600;
+   color:#FFF;
+   top: 0px;
+   font-size: 2em;
+   margin-bottom: 10px;
+   
+}
+
+.text3
+{
+   color:#FFF;
+   font-size: 1em;	
+   
+}
+
+ .banner3 .contentBx3
+{
+    min-width: 50%;
+	position:relative;
+	top: 140px;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	z-index:1;
+
+}
+
+.banner3
+{
+	display: flex;
+	flex-wrap: wrap;
+	min-height: 130vh;
+	width: 100%;
+	background: url(../image/Spies2.jpg) center;
+	background-size:cover;	
+}
+
+.btn
+{
+	z-index:1;
+	position:relative;
+	display:inline-block;
+	padding: 8px 20px;
+	background: #66F;
+	margin-top: 15px;
+	text-decoration: none;
+	font-weight: 400;
+	border-radius: 20px;
+	color: #FFF;
+	transition: 0.5s;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}	
+
+
+.banner3 .contentBx3 form
+{
+  width:100%;	
+}
+
+.container6 
+{
+	width: 150%;
+	padding:15px;
+	margin: 15px;
+}
+
+@media (max-width: 991px)
+{
+	
+.container6 
+{
+	width: 50%;
+	padding:15px;
+	margin: 15px;
+	display:list-item;
+	background-size:cover;
+	justify-content: flex-start;
+    align-items: center;
+}
+
+
+
+}
+

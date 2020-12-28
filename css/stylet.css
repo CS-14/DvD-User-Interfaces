@@ -1,0 +1,62 @@
+ #main-wrapper{
+    width: 500px;
+    margin: 0 auto;
+    background:white;
+    padding:5px;
+    border-radius:5%;
+    border:2px solid #2c3e50;
+
+}
+
+.avatar{
+    width:250px;
+    text-align:center;
+    border-radius:50%;
+}
+.myform{
+    width:450px;
+    margin:0 auto;
+
+}
+.inputvalues{
+    width:430px;
+    margin:0 auto;
+    padding:5px;
+}
+
+
+
+
+.save_button{
+  
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color:rgb(25, 105, 211);
+}
+
+
+#link {
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color:rgb(47, 16, 119);
+    }
+
+ 
+
+    

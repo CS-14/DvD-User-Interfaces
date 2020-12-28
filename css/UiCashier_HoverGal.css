@@ -1,0 +1,181 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.gal{
+	
+	height: 120vh;
+	padding: 40px;
+	background:url(../image/Imdb11.jpg);
+	background-size:cover;
+}
+
+.container
+{
+	position:relative;
+	width:100%;
+	height: 500px;
+	background:#222;
+}
+
+.container .clip
+{
+	position:absolute;
+	top: 0;
+	width:100%;
+	height: 100%;
+	transition: 0.5s;
+}
+
+
+.container .clip.clip1
+{
+	clip-path: polygon(0 0, 51% 0, 10% 100%, 0% 100%);
+	background-size:cover;
+	background:url(../image/JLA12.jpg);
+		
+}
+
+
+.container .clip.clip2
+{
+	background:url(../image/Guradians.jpg);
+	clip-path: polygon(48% 0, 81% 0, 32% 100%, 8% 100%);
+	background-size:cover;
+	
+}
+
+
+.container .clip.clip3
+{
+	background:url(../image/JLA5.jpg);
+	clip-path: polygon(76% 0, 100% 0, 100% 34%, 25% 100%);
+	background-size:cover;
+		
+}
+
+.container .clip.clip4
+{
+	background:url(../images/Jumanji.jpg);
+	clip-path: polygon(100% 26%, 100% 30%, 100% 100%, 25% 100%);
+	background-size:cover;
+		
+}
+
+
+.container:hover .clip
+{
+	clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+	
+}
+
+.container .clip:hover
+{
+	
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+
+.content1
+{
+	position:absolute;
+	bottom: -100%;
+	width:70%;
+	left: 0;
+	padding:20px;
+	background:linear-gradient(235deg,#772aff,#ff4233,#2196f3);
+	opacity: 0;
+	transition: 0.5s;
+	border-radius: 20px;	
+}
+
+
+.container .clip:hover .content1
+{
+	bottom: 0;
+	opacity: 1;
+	
+	
+	}
+	
+	
+	.titleText4
+{
+   font-weight: 600;
+   color:#FFF;
+   font-size: 2em;
+   margin-bottom: 10px;
+   
+}
+
+.text4
+{
+   color:#FFF;
+   font-size: 1em;	
+   
+}
+
+ .gal .contentBx4
+{
+    min-width: 50%;
+	position:relative;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	z-index:1;
+
+}
+
+
+.player
+{
+	
+	position: relative;
+	width: 350px;
+	margin: 20px;
+	background:#f1f3f4;
+	box-shadow: 0 50px 80px rgba(0,0,0,0.25);
+	-webkit-box-reflect:below 1px linear-gradient(transparent 80%,#0009);
+	transform:rotateX(10deg);
+}
+
+.player .imgBx6
+{
+	position:relative;
+	width: 100%;
+	height: 350px;
+	
+}
+
+
+.player .imgBx6 img
+{
+	position:relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit:cover;
+}
+
+.player audio
+{
+	width: 100%;
+	outline: none;
+}
+
+
+
+@media (max-width: 991px)
+{
+	.gal
+	{
+		height: 140vh;
+	}
+	
+	.about:befroe
+	{
+	 display:none;	
+	}
+	
+}
