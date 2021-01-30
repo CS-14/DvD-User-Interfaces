@@ -56,11 +56,11 @@ if (isset($_GET['user_id'])) {
 
            
         }else{
-            header('Location:users.php?err=delete_failed'); 
+            header('Location:usv.php?err=delete_failed');
         }
         if($result2){
             //user deleted
-            header('Location:users-view.php?msg=user_deleted'); 
+            header('Location:usv.php?msg=user_deleted');
         }
 
     }     
@@ -69,7 +69,7 @@ if (isset($_GET['user_id'])) {
 
    
 }else{
-    header('Location: users-view .php');
+    header('Location: usv .php');
 }
 ?>
 

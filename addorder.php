@@ -118,22 +118,43 @@ if(empty($errors)){
 ?>
 
 <!DOCTYPE html>
-<html> 
+<html>
 
 <head>
-        <meta charset ="UTF-8">
-        <title>Add New Order </title>
-        <link rel ="stylesheet" href ="css/users.css">
+    <meta charset ="UTF-8">
+    <title>Add Order </title>
+    <link rel ="stylesheet" href ="css/users.css">
+    <link rel ="stylesheet" href ="css/modify_nav.css">
+    <link rel ="stylesheet" href ="css/modify_form.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
 </head>
-
 <body>
+
+<section class="banner2">
     <header>
-        <div class ="appname"> User Management System </div>
-        <div class ="logedin"> Welcome <?php echo ($_SESSION['user_name']); ?> ! <a href ="logout.php"> Logout </a></div>
+        <a href="#" class="logo">Add Order</a>
+
+        <br >
+        <div class ="logedin"> Welcome <?php echo ($_SESSION['user_name']); ?> ! </div>
+
+        <div class="toggleMenu" onmouseover="toggleMenu();"></div>
+        <ul class="navigation">
+
+            <li><a href="Home.php">Home</a></li>
+            <li><a href="cashier-view.php">Back</a></li>
+            <li><a href="logout.php">Log-out</a></li>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="#"></a></li>
+
+        </ul>
     </header>
 
-    <main>
-        <h1> Add New Order <span> <a href="orders-view.php"> < Back to Order List</a></span></h1>
+    <div class="content">
+        <div class="contentBx">
+
+            <h3 class="textTitle"><a href="orders-view.php" class="btn"> < Back to order List</a></h3>
+        </div>
+    </div>
       
        <?php
        
@@ -142,57 +163,97 @@ if(empty($errors)){
             }
        ?>
         <form action ="addorder.php" method ="post" class="userform">
+            <div class="container6">
 
-        <p>
-        <label for="">Reference No:</label>
-        <input type="text" name="RefNo" <?php echo 'value ="'.$RefNo.'"';?>>
-        </p> 
+                <div class="row100">
+                    <div class="col">
+                        <div class="inputBox">
 
-        <p>
-        <label for = " ">Ordered Date: </label>
-        <input type = "date" name = "Order_date"<?php echo 'value ="'.$Order_date.'"';?> >
-        </p>
-       
-        <p>
-        <label for = " ">User Name :</label>
-        <input type = "text" name ="User_Name"<?php echo 'value ="'.$User_Name.'"';?> >
-        </p>
+                            <input type="text" name="RefNo" required <?php echo 'value ="'.$RefNo.'"';?>>
+                            <span class="text">Reference No:</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
 
-        <p>
-        <label for = " ">CustomerId :</label>
-        <input type = "text" name ="CusId"<?php echo 'value ="'.$CusId.'"';?> >
-        </p>
+                <div class="row100">
+                        <div class="col">
+                            <div class="inputBox">
 
-        <p>
-        <label for = " ">Description:</label>
-        <input type = "text" name = "Descrition"<?php echo 'value ="'.$Description.'"';?> > 
-        </p>
+                                <input type="date" name="Order_date" required <?php echo 'value ="'.$Order_date.'"';?>>
+                                <span class="date">Ordered Date:</span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
 
-        <p>
-        <label for = " ">Cost: </label>
-        <input type = "text" name = "cost"<?php echo 'value ="'.$cost.'"';?> > 
-        </p>
+                <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="User_Name" required <?php echo 'value ="'.$User_Name.'"';?>>
+                            <span class="text">User Name :</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
 
-        <p>
-        <label for = " ">Payment Method: </label>
-        <input type = "text" name = "paymethod"<?php echo 'value ="'.$pay_method.'"';?> >
-        </p>
 
-        <p>
-        <label for = " ">Customer Email: </label>
-        <input type = "email" name = "Email"<?php echo 'value ="'.$Email.'"';?> > 
-        </p>
-        
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="CusId" required <?php echo 'value ="'.$CusId.'"';?>>
+                            <span class="text">CustomerId :</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
+                <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="Descrition" required <?php echo 'value ="'.$Description.'"';?>>
+                            <span class="text">Description:</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
+                <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="cost" required <?php echo 'value ="'.$cost.'"';?>>
+                            <span class="text">Cost:</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
+                   <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="paymethod" required <?php echo 'value ="'.$pay_method.'"';?>>
+                            <span class="text">Payment Method:</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="email" name="Email" required <?php echo 'value ="'.$Email.'"';?>>
+                            <span class="text">Customer Email:</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
       
 
-        <p>
-        <label for = " ">&nbsp; </label>
-        <button type = "submit" name = "submit"> Save </button> 
-        </p>
-             
-        </form>
-    </main> 
+                    <div class="row100">
+                        <div class="col">
+                            <input type="submit" name="submit" value="Save">
+                        </div>
+                    </div>
 
+        </form>
+</section>
+<section class="footgal">
+
+    <ul class="sci">
+        <li><a href="#"><img src="image/facebook.png"></a></li>
+        <li><a href="#"><img src="image/instagram.png"></a></li>
+        <li><a href="#"><img src="image/twitter.png"></a></li>
+    </ul>
+    <h4 class="copyrightText">Copyright @2020 <a href="#">DVD HOUSE Production</a>. All rights deserved</h4>
+
+</section>
 
  </body>
 </html>

@@ -13,7 +13,7 @@
     if(isset($_GET['search'])){
 
         $search = mysqli_real_escape_string($connection,$_GET['search']);
-        $query ="SELECT * FROM orderstable WHERE (UserName LIKE '%{$search}%' OR ODate LIKE %{$search}% OR RefNo LIKE '%{$search}%') AND is_deleted=0 ORDER BY RefNo";
+        $query ="SELECT * FROM orderstable WHERE (UserName LIKE '%{$search}%'  OR RefNo LIKE '%{$search}%') AND is_deleted=0 ORDER BY RefNo";
     }else{
         $query ="SELECT * FROM orderstable WHERE (is_deleted=0 AND Confirmation=0) ORDER BY RefNo";
     }
@@ -25,7 +25,7 @@
         while($order = mysqli_fetch_assoc($orders)){
             $orderlist .= "<tr>";
             $orderlist .= "<td>{$order['RefNo']}</td>";
-            $orderlist .= "<td>{$order['UserName']}</td>";
+
             $orderlist .= "<td>{$order['Customer_email']}</td>"; 
             $orderlist .= "<td>{$order['Payment_method']}</td>"; 
             $orderlist .= "<td>{$order['TotalCost']}</td>"; 
@@ -45,39 +45,125 @@
     <meta charset ="UTF-8">
     <title>Orders </title>
     <link rel ="stylesheet" href ="css/users.css">
+    <link rel ="stylesheet" href ="css/orders_nav.css">
+    <link rel ="stylesheet" href ="css/orders_sec.css">
+     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="css/cashier.css">
+    <link rel="stylesheet" href="css/cashier_nav.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 </head>
 <body>
+   <section class="banner2">
+
     <header>
-        <div class ="appname"> Orders Management System </div>
-        <div class ="logedin"> Welcome <?php echo ($_SESSION['user_name']); ?> ! <a href ="logout.php"> Logout </a></div>
+        <a href="#" class="logo"> Orders</a>
+
+        <br >
+        <div class ="logedin" style="color: lightseagreen;"> Welcome <?php echo ( $_SESSION['First_name']); ?> ! </div>
+
+        <div class="toggleMenu" onmouseover="toggleMenu();"></div>
+        <ul class="navigation">
+
+            <li><a href="cashier-view.php">Home</a></li>
+
+            <li><a href="cashier-view.php">Back</a></li>
+            <li><a href="logout.php">Logout</a></li>
+            <li><a href="orders-view.php">Refresh</a></li>
+
+            <li><a href="#"></a></li>
+
+        </ul>
+
     </header>
+       <div class="navigation2">
+           <ul>
+               <li>
+                   <a href="#">
+                       <span class="icon1"><i class="#"" aria-hidden="true"></i></span>
+                       <span class="title1"></span></a></li>
 
-<main>
-    <h1> Orders <span><a href="addorder.php"> + Add New Order </a> </span>  </h1>
-   
-   <div class ="search" style ="margin-bottom: 12px;">
-        <form action="users-view.php" method="get">         
-            <p>
-            <input type ="text" name ="search" id="" placeholder="Type User Name or Date  or RefNo and Press Enter"  value="<?php echo $search;?>"  style="width :99%;"required  autofocus>
-            </p> 
-       
-        </form>
-   </div>
+               <li>
+                   <a href="orders-view.php">
+                       <span class="icon1"><i class="fa fa-first-order" aria-hidden="true"></i></span>
+                       <span class="title1">Online orders</span></a></li>
 
-   <table class = "masterlist">
-    <tr>       
-        <th>Reference No </th>
-        <th>User Name</th>
+               <li>
+                   <a href="purchases.php">
+                       <span class="icon1"><i class="fa fa-first-order" aria-hidden="true"></i></span>
+                       <span class="title1">Purchases</span></a></li>
+
+
+               <li>
+                   <a href="lending-view.php">
+                       <span class="icon1"><i class="fa fa-first-order" aria-hidden="true"></i></span>
+                       <span class="title1">Lendings</span></a></li>
+
+               <li>
+                   <a href="#">
+                       <span class="icon1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                       <span class="title1">Mails</span></a></li>
+
+
+
+           </ul>
+       </div>
+   <form action="orders-view.php" method="get">
+     <div class="container6">
+        
+      <div class="row100">
+          <h3 class="titleText"><a href="orders-view.php" class="btn"> Refresh </a> | <a href="confirmed_orders.php" class="btn"> Confirmed Orders </a></h3>
+	<div class="col">
+              <div class="inputBox">
+
+   <input type="text" name="search" placeholder= "Type User Name or Date  or RefNo and Press Enter" id="" required value=" <?php echo $search;?>" >
+        <span class="text">Search </span>
+      <span class="line"></span>
+    </div>
+</div>
+
+</div>
+
+</form>
+
+
+           <div class="content">
+  <div class="contentBx">
+  <table class="content-table">
+<thead>
+<tr> 
+      <th>Reference No </th>
+
         <th> Customer Email</th>
         <th> Payment method</th>
         <th> Total Cost</th>
-        <th> Ordered Date</th>
+        <th> Ordered  Date</th>
         <th>Confirmation</th>
         <th>Delete</th>
-    </tr>  
+  </tr>
+  </thead>
+
     <?php echo $orderlist; ?>
      </table> 
-</main> 
+</div>
+</div>
+
+</section>
+   <footer>
+       <section class="footgal">
+
+
+           <ul class="sci">
+               <li><a href="#"><img src="image/facebook.png"></a></li>
+               <li><a href="#"><img src="image/instagram.png"></a></li>
+               <li><a href="#"><img src="image/twitter.png"></a></li>
+           </ul>
+
+           <h4 class="copyrightText">Copyright @2020 <a href="#">DVD HOUSE Production</a>. All rights deserved</h4>
+       </section>
+   </footer>
+
+
 
 </body>
 

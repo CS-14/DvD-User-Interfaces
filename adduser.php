@@ -6,12 +6,10 @@
 $errors = array();
 $First_Name = '';
 $Last_Name ='';
-$User_Name ='';
 $User_Type ='';
 $Telephone ='';
 $NIC ='';
 $Email ='';
-$Addrerss ='';
 $User_Password ='';
 
 if(isset($_POST['submit']))
@@ -19,22 +17,20 @@ if(isset($_POST['submit']))
    
     $First_Name =$_POST['First_Name'];
     $Last_Name =$_POST['Last_Name'];
-    $User_Name =$_POST['User_Name'];
     $User_Type =$_POST['User_Type'];
     $Telephone =$_POST['Telephone'];
     $NIC =$_POST['NIC'];
     $Email =$_POST['Email'];
-   // $Addrerss =$_POST['Addrerss'];
     $User_Password =$_POST['User_Password'];
 
     //checking required fileds
 
-    $req_fields =array('First_Name','Last_Name','User_Name','User_Type','Telephone','NIC','Email','User_Password');
+    $req_fields =array('First_Name','Last_Name','User_Type','Telephone','NIC','Email','User_Password');
     $errors = array_merge($errors,check_req_fields($req_fields));
 
     //checking max length
 
-    $max_length_fields = array('First_Name'=> 50,'Last_Name'=>50,'User_Name'=>50,'User_Type'=>10,'Telephone'=>10,'NIC'=>100,'Email'=>50,'User_Password'=>50);
+    $max_length_fields = array('First_Name'=> 50,'Last_Name'=>50,'User_Type'=>10,'Telephone'=>10,'NIC'=>100,'Email'=>50,'User_Password'=>50);
     $errors = array_merge($errors,check_max_length($max_length_fields));
        
           
@@ -55,17 +51,9 @@ if(isset($_POST['submit']))
         }
     }
 
-    //checking username already exixts
-    $uname = mysqli_real_escape_string($connection,$_POST['User_Name']);
-    $query1 ="SELECT * FROM users WHERE UserName ='{$uname}' LIMIT 1";
 
-    $result_set1 =mysqli_query($connection,$query1);
 
-    if($result_set){
-        if(mysqli_num_rows($result_set1)==1){
-            $errors[]='User Name already exists!';
-        }
-    }
+
 
 //add data to the table
 if(empty($errors)){
@@ -74,23 +62,23 @@ if(empty($errors)){
     $First_Name = mysqli_real_escape_string($connection,$_POST['First_Name']);
     $Last_Name = mysqli_real_escape_string($connection,$_POST['Last_Name']);
     // email and username is already sanitized
-    $User_Type =mysqli_real_escape_string($connection,$_POST['User_Type']);
+
     $Telephone =mysqli_real_escape_string($connection,$_POST['Telephone']);
     $NIC = mysqli_real_escape_string($connection,$_POST['NIC']);
-   // $Addrerss = mysqli_real_escape_string($connection,$_POST['Addrerss']);
+
     $User_Password  = mysqli_real_escape_string($connection,$_POST['User_Password']);
 
     // hashed password
     $hashed_password = sha1($User_Password);
 
    // insert data to user table
-    $query2 = " INSERT INTO users (utype,UserName,cpassword,Email,is_deleted)
-    VALUES('{$User_Type}','{$uname}','{$User_Password}','$email',0) ";
+    $query2 = " INSERT INTO users (utype,FirstName,cpassword,Email,is_deleted)
+    VALUES('{$User_Type}','{$First_Name}','{$User_Password}','$email',0) ";
 
     $result = mysqli_query($connection , $query2);
 
      // select specific user id in users table
-     $query3 = " SELECT UserId FROM users WHERE  UserName ='{$uname}'";
+     $query3 = " SELECT UserId FROM users WHERE  Email ='{$Email}'";
      $result2 = mysqli_query($connection , $query3); 
      if($result2->num_rows >0){
          while($row = $result2->fetch_assoc())
@@ -100,37 +88,33 @@ if(empty($errors)){
      }
 
     if ($result)
-    { /*if($User_Type = 'customer')
-        {
-        $query4 = " INSERT INTO customer (Cpassword,FirstName,LastName,UserName,HAddress,Email,Telephone,CustomerId,UserId)
-        VALUES('{$User_Password}','{$First_Name}','{$Last_Name}','{$User_Name}','$Addrerss','{$Email}','{$Telephone}','{$NIC}',{$uid})";
-        $result3 = mysqli_query($connection , $query4);
-        } */
-        if($User_Type = 'owner')
-        {
-        $query4 = " INSERT INTO owners (OPassword,First_Name,Last_Name,UserName,Email,ContactNo,OwnerId,UserId)
-        VALUES('{$User_Password}','{$First_Name}','{$Last_Name}','{$User_Name}','{$Email}','{$Telephone}','{$NIC}',{$uid})";
-        $result3 = mysqli_query($connection , $query4);
+    {
+    if($User_Type =='owner'){
+
+                $query4 = " INSERT INTO owners (OPassword,First_Name,Last_Name,Email,ContactNo,OwnerId,UserId)
+                VALUES('{$User_Password}','{$First_Name}','{$Last_Name}','{$Email}','{$Telephone}','{$NIC}',{$uid})";
+                $result3 = mysqli_query($connection , $query4);
         } 
 
-        if($User_Type = 'admin')
-        {
-        $query4 = " INSERT INTO admins (APassword,FirstName,LastName,UserName,Email,ContactNo,AdminId,UserId)
-        VALUES('{$User_Password}','{$First_Name}','{$Last_Name}','{$User_Name}','{$Email}','{$Telephone}','{$NIC}',{$uid})";
-        $result3 = mysqli_query($connection , $query4);
-        } 
+    else if($User_Type =='admin'){
+                
+                $query5 = " INSERT INTO admins (APassword,FirstName,LastName,Email,ContactNo,AdminId,UserId)
+                VALUES('{$User_Password}','{$First_Name}','{$Last_Name}','{$Email}','{$Telephone}','{$NIC}',{$uid})";
+                $result3 = mysqli_query($connection , $query5);
+                } 
 
-        if($User_Type = 'cashier')
+    else if($User_Type == 'cashier')
         {
-        $query4 = " INSERT INTO cashiers (Chpassword,First_Name,Last_Name,UserName,Email,ContactNo,CashierId,UserId)
-        VALUES('{$User_Password}','{$First_Name}','{$Last_Name}','{$User_Name}','{$Email}','{$Telephone}','{$NIC}',{$uid})";
-        $result3 = mysqli_query($connection , $query4);
+                $query6 = " INSERT INTO cashiers (Chpassword,First_Name,Last_Name,Email,ContactNo,CashierId,UserId)
+                VALUES('{$User_Password}','{$First_Name}','{$Last_Name}','{$Email}','{$Telephone}','{$NIC}',{$uid})";
+                $result3 = mysqli_query($connection , $query6);
+        
         } 
 
     }
 
     if($result3){
-        header('Location:users-view.php');
+        header('Location:usv.php');
     }
     else{
         echo "error!";
@@ -138,29 +122,97 @@ if(empty($errors)){
 }
 
 
-
-
-
-
 }
 ?>
 <!DOCTYPE html>
-<html> 
+<html>
 
 <head>
-        <meta charset ="UTF-8">
-        <title>Add New User </title>
-        <link rel ="stylesheet" href ="css/users.css">
+    <meta charset ="UTF-8">
+    <title>Add User </title>
+    <link rel ="stylesheet" href ="css/users.css">
+    <link rel ="stylesheet" href ="css/modify_nav.css">
+    <link rel ="stylesheet" href ="css/modify_form.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="css/admin1.css">
+    <link rel="stylesheet" href="css/admin1_chart.css">
+    <link rel="stylesheet" href="css/admin1_nav.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 </head>
 
 <body>
+<section class="banner2">
+
     <header>
-        <div class ="appname"> User Management System </div>
-        <div class ="logedin"> Welcome <?php echo ($_SESSION['user_name']); ?> ! <a href ="logout.php"> Logout </a></div>
+        <a href="#" class="logo">Add User</a>
+
+        <br >
+        <div class ="logedin"> Welcome <?php echo ( $_SESSION['First_name']); ?> ! </div>
+
+        <div class="toggleMenu" onmouseover="toggleMenu();"></div>
+        <ul class="navigation">
+
+            <li><a href="adminview.php">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="adminview.php">Back</a></li>
+            <li><a href="logout.php">Log-out</a></li>
+            <li><a href="#"></a></li>
+
+        </ul>
     </header>
 
-    <main>
-        <h1> Add New User <span> <a href="users-view.php"> < Back to User List</a></span></h1>
+
+    <div class="navigation2">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon1"><i class="#"" aria-hidden="true"></i></span>
+                    <span class="title1"></span></a></li>
+
+            <li>
+                <a href="usv.php">
+                    <span class="icon1"><i class="fa fa-users"" aria-hidden="true"></i></span>
+                    <span class="title1">Users</span></a></li>
+
+
+
+            <li>
+            <li>
+                <a href="adminorders-view.php">
+                    <span class="icon1"><i class="fa fa-first-order" aria-hidden="true"></i></span>
+                    <span class="title1">orders</span></a></li>
+            <li>
+                <a href="adminlending-view.php">
+                    <span class="icon1"><i class="fa fa-first-order" aria-hidden="true"></i></span>
+                    <span class="title1">Lendings</span></a></li>
+
+            <li>
+                <a href="#">
+                    <span class="icon1"><i class="fa fa-film" aria-hidden="true"></i></span>
+                    <span class="title1">Movies</span></a></li>
+
+
+            <li>
+                <a href="#">
+                    <span class="icon1"><i class="fa fa-anchor" aria-hidden="true"></i></span>
+                    <span class="title1">Categories</span></a></li>
+
+
+            <li>
+                <a href="#">
+                    <span class="icon1"><i class="fa fa-comments" aria-hidden="true"></i></span>
+                    <span class="title1">Messages</span></a></li>
+
+        </ul>
+    </div>
+    <div class="content">
+        <div class="contentBx">
+
+            <h3 class="textTitle"><a href="usv.php" class="btn"> < Back to User List</a></h3>
+        </div>
+    </div>
+
       
        <?php
        
@@ -169,56 +221,91 @@ if(empty($errors)){
             }
        ?>
         <form action ="adduser.php" method ="post" class="userform">
+            <div class="container6">
 
-        <p>
-                <label for="">First Name:</label>
-                <input type="text" name="First_Name" <?php echo 'value ="'.$First_Name.'"';?>>
-        </p> 
-       
-        <p>
-                <label for = " ">Last Name :</label>
-                <input type = "text" name ="Last_Name"<?php echo 'value ="'.$Last_Name.'"';?> >
-        </p>
+                <div class="row100">
+                    <div class="col">
+                        <div class="inputBox">
 
-        <p>
-                <label for = " ">User Name:</label>
-                <input type = "text" name = "User_Name"<?php echo 'value ="'.$User_Name.'"';?> > 
-        </p>
+                            <input type="text" name="First_Name" required <?php echo 'value ="'.$First_Name.'"';?>>
+                            <span class="text">First Name</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
 
-        <p>
-                <label for = " ">User Type: </label>
-                <input type = "text" name = "User_Type"<?php echo 'value ="'.$User_Type.'"';?> > 
-        </p>
+                <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="Last_Name" required <?php echo 'value ="'.$Last_Name.'"';?>>
+                            <span class="text">Last Name</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
 
-        <p>
-                <label for = " ">Telephone: </label>
-                <input type = "text" name = "Telephone"<?php echo 'value ="'.$Telephone.'"';?> > 
-        </p>
 
-        <p>
-                <label for = " ">NIC: </label>
-                <input type = "text" name = "NIC"<?php echo 'value ="'.$NIC.'"';?> > 
-        </p>
-        
-        <p>   
-                <label for = " ">Email: </label>
-                <input type = "email" name = "Email"<?php echo 'value ="'.$Email.'"';?> > 
-        </p>
 
-        <p>
-                <label for = " ">User_Password: </label>
-                <input type = "password" name = "User_Password" > 
-        </p>
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="User_Type" required <?php echo 'value ="'.$User_Type.'"';?>>
+                            <span class="text">User Type</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
 
-        <p>
-                <label for = " ">&nbsp; </label>
-                <button type = "submit" name = "submit"> Save </button> 
-        </p>
-             
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="Telephone" required <?php echo 'value ="'.$Telephone.'"';?>>
+                            <span class="text">Telephone</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="NIC" required <?php echo 'value ="'.$NIC.'"';?>>
+                            <span class="text">NIC</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="email" name="Email" required <?php echo 'value ="'.$Email.'"';?>>
+                            <span class="text">Email</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="password" name="User_Password" required <?php echo 'value ="'.$User_Password.'"';?>>
+                            <span class="text">User_Password</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row100">
+                        <div class="col">
+                            <input type="submit" name="submit" value="Save">
+                        </div>
+                    </div>
+
         </form>
-    </main> 
+</section>
+
+<section class="footgal">
+
+    <ul class="sci">
+        <li><a href="#"><img src="image/facebook.png"></a></li>
+        <li><a href="#"><img src="image/instagram.png"></a></li>
+        <li><a href="#"><img src="image/twitter.png"></a></li>
+    </ul>
+    <h4 class="copyrightText">Copyright @2020 <a href="#">DVD HOUSE Production</a>. All rights deserved</h4>
+
+</section>
 
 
- </body>
+</body>
 </html>
-   

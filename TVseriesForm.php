@@ -1,27 +1,20 @@
 <?php session_start(); ?>
-<?php
-require_once('inc/connection.php');
- ?>
-
-
-
 <!DOCTYPE html>
 <html>
 <head>  
 
 <meta charset ="UTF-8">
-<title>Add New Movie </title>
-    <title>Modify User </title>
-    <link rel ="stylesheet" href ="css/users.css">
-    <link rel ="stylesheet" href ="css/modify_nav.css">
-    <link rel ="stylesheet" href ="css/modify_form.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+<title>Add New TV SERIES </title>
+<link rel ="stylesheet" href ="css/stylet.css">
+<link rel ="stylesheet" href ="css/category_Nav.css">
+<link rel ="stylesheet" href ="css/category_Foot.css">
+<link rel ="stylesheet" href ="css/category_Form.css">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/admin1.css">
     <link rel="stylesheet" href="css/admin1_chart.css">
     <link rel="stylesheet" href="css/admin1_nav.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
- 
 </head>
 
 <body>
@@ -30,7 +23,7 @@ require_once('inc/connection.php');
 <section class="banner2">
 
     <header>
-        <a href="#" class="logo"> Add Movie</a>
+        <a href="#" class="logo">Add TV Series</a>
 
         <br >
         <div class ="logedin" style="color: lightseagreen;"> Welcome <?php echo ( $_SESSION['First_name']); ?> ! </div>
@@ -40,7 +33,7 @@ require_once('inc/connection.php');
 
             <li><a href="owner-view.php">Home</a></li>
             <li><a href="service.php">Services</a></li>
-            <li><a href="contact.php">Contact</a></li>
+
             <li><a href="logout.php">Log-out</a></li>
             <li><a href="profile.php">Profile</a></li>
             <li><a href="#"></a></li>
@@ -106,27 +99,34 @@ require_once('inc/connection.php');
     <div class="content">
         <div class="contentBx">
 
-            <h3 class="textTitle"><a href="movielist.php" class="btn"> < Back to Movie List</a></h3>
+            <h3 class="textTitle"><a href="tvlist.php" class="btn"> < Back to TV Series List</a></h3>
         </div>
     </div>
-
-     <form action ="addmovie.php"  method ="post"  >
+    
+        <form action ="addTVseries.php"  method ="post" >  
           
 <div class="container6">
         
         <div class="row100">
-
+	<div class="col">
+      <div class="inputBox">
+       <input type="text" name="DVDid" class = "inputvalues" required >
+                 
+         <span class="text">DVD Id:</span>
+      <span class="line"></span>
+    </div>
+</div>
 
 <div class="col">
       <div class="inputBox">
     <input type="text" name="name" required >
-      <span class="text">Movie Name:</span>
+      <span class="text">Tv Series Name:</span>
       <span class="line"></span>
     </div>
 </div>
 </div>
 
- <div class="row100">
+     <div class="row100">
 	<div class="col">
       <div class="inputBox">
       <input type="text" name="price" required>
@@ -145,8 +145,7 @@ require_once('inc/connection.php');
 </div>
 </div>
 
-
- <div class="row100">
+   <div class="row100">
 	<div class="col">
       <div class="inputBox">
       <input type="text" name="categoryId"  required    >
@@ -154,36 +153,94 @@ require_once('inc/connection.php');
       <span class="line"></span>
     </div>
 </div>
-</div>
-    <div class="row100">
-        <div class="col">
-            <div class="inputBox">
-                <form action="addmovie.php" method ="post" enctype="multipart/form-data">
-                <span class="text">Upload Image: </span><br>
-                &nbsp; &nbsp; &nbsp;<p>Note: JPEG files less than 2.5Mb only.</p><br>
-                <input type="file" name="image"  required ><br>
-            </div>
-<br>
+</div>      
+  
 
-            <div class="row100">
-                <div class="col">
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="submit"  name="upload" value="Upload">
-                </div>
-            </div>
+<p>     
+  <label for="">&nbsp;</label>
+  <button type="submit" name="submit" class="save_button" >Save</button >
 
-        <div class="row100">
-            <div class="col">
-                <input type="submit"  name="submit" value="Save">
-            </div>
-        </div>
+</p>
 
-</form>
+
+
+        </form>
 
   </div>
   
 </section>
   
+   <footer>
 
+<div class="container7">
+        <div class="sec aboutus">
+        <h2>About Us</h2>
+        <p>When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.</p>
+        
+        <ul class="sci">
+         <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+         <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+         <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+         <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+     
+     </ul>
+     
+</div>
+
+<div class="sec quickLinks">
+<h2>Quick Links</h2>
+<ul>
+          <li><a href="#">About</a></li><br >
+          <li><a href="#">FAQ</a></li><br >
+          <li><a href="#">Privacy Policy</a></li><br >
+          <li><a href="#">Help</a></li><br >
+          <li><a href="#">Terms & Conditions</a></li><br>
+          <li><a href="#">Contacts</a></li><br>
+     
+     </ul>
+</div>
+
+<div class="sec contact">
+<h2>Contact Info</h2>
+<ul class="info">
+          <li>
+          <span><i class="fa fa-map" aria-hidden="true"></i>
+          <span>No 89/A Walawwatta Road<br>Papiliyana<br />Sri Lanka
+          </span>
+          </li><br >
+          
+           <li>
+          <span><i class="fa fa-phone-square" aria-hidden="true"></i>
+      <p><a href="Tel:12930405">+94 74693647</a> <br>
+      <a href="Tel:12930405">+94 8985647</a></p>
+          </li><br>
+          
+          <li>
+          <span><i class="fa fa-envelope-square" aria-hidden="true"></i>  </span>
+          <p><a href="enterprisedvdhouse@gmail.com">enterprisedvdhouse@gmail.com</a></p>
+        
+          </li><br >
+              
+     </ul>
+      <h4 class="copyrightText">Copyright @2020 <a href="#">DVD HOUSE Production</a>. All rights deserved</h4>
+</div>
+
+</div>
+
+</footer>
+ 
+   
+  
+
+<script type="text/javascript"> 
+    function toggleMenu()
+    {
+    const toggleMenu = document.querySelector('.toggleMenu');
+	const navigation = document.querySelector('.navigation');
+    toggleMenu.classList.toggle('active');
+	navigation.classList.toggle('active');
+    }
+    </script>
     
 </body>
 </html>

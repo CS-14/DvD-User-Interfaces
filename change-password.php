@@ -6,12 +6,12 @@
 $errors = array();
 $First_Name = '';
 $Last_Name ='';
-$User_Name ='';
+
 $User_Type ='';
 $Telephone ='';
 $NIC ='';
 $Email ='';
-$Addrerss ='';
+
 $user_id ='';
 $password ='';
 
@@ -26,29 +26,10 @@ if (isset($_GET['user_id'])) {
         if (mysqli_num_rows($result_set) == 1) {
             // user found
             $result = mysqli_fetch_assoc($result_set);
-            $User_Name = $result['UserName'];
+
             $User_Type = $result['utype'];
             $Email = $result['Email'];
            
-       
-
-        if($User_Type = 'customer'){
-            $query1 = "SELECT * FROM customer WHERE UserId = {$user_id} LIMIT 1";
-            $result_set1 = mysqli_query($connection, $query1);
-            if ($result_set1){
-                if (mysqli_num_rows($result_set1) == 1) {
-                    // customer found
-                    $result1 = mysqli_fetch_assoc($result_set1);
-                    $First_Name = $result1['FirstName'];
-                    $Last_Name = $result1['LastName'];
-                    $Telephone = $result1['Telephone'];
-                    $NIC = $result1['CustomerId'];
-                    $Addrerss = $result1['HAddress'];
-                }
-            }
-            
-        }
-
 
         if($User_Type = 'owner'){
             $query1 = "SELECT * FROM owners WHERE UserId = {$user_id} LIMIT 1";
@@ -61,7 +42,8 @@ if (isset($_GET['user_id'])) {
                     $Last_Name = $result1['Last_Name'];
                     $Telephone = $result1['ContactNo'];
                     $NIC = $result1['OwnerId'];
-                    $Addrerss = $result1['OAddress'];
+                    $password =$result1['OPassword'];
+
                 }
             }
             
@@ -79,7 +61,7 @@ if (isset($_GET['user_id'])) {
                     $Last_Name = $result1['Last_Name'];
                     $Telephone = $result1['ContactNo'];
                     $NIC = $result1['CashierId'];
-                    $Addrerss = $result1['CAddress'];
+
                 }
             }
             
@@ -96,7 +78,7 @@ if (isset($_GET['user_id'])) {
                     $Last_Name = $result1['LastName'];
                     $Telephone = $result1['ContactNo'];
                     $NIC = $result1['AdminId'];
-                    $Addrerss = $result1['AAddress'];
+
                 }
             }
             
@@ -175,7 +157,7 @@ if(empty($errors)){
      }
 
    if($result3){
-        header('Location:users-view.php ? user_modified=true');
+        header('Location:usv.php ? user_modified=true');
         
    }
     else{
@@ -187,90 +169,176 @@ if(empty($errors)){
 ?>
 
 <!DOCTYPE html>
-<html> 
+<html>
 
-    <head>
-            <meta charset ="UTF-8">
-            <title>Change Password </title>
-            <link rel ="stylesheet" href ="css/users.css">
-    </head>
+<head>
+    <meta charset ="UTF-8">
+    <title>Change Password </title>
+    <link rel ="stylesheet" href ="css/users.css">
+    <link rel ="stylesheet" href ="css/modify_nav.css">
+    <link rel ="stylesheet" href ="css/modify_form.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="css/admin1.css">
+    <link rel="stylesheet" href="css/admin1_chart.css">
+    <link rel="stylesheet" href="css/admin1_nav.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
 
     <body>
-        <header>
-        <div class ="appname"> User Management System </div>
-        <div class ="logedin"> Welcome <?php echo ($_SESSION['user_name']); ?> ! <a href ="logout.php"> Logout </a></div>
-    </header>
+    <section class="banner2">
 
-    <main>
-        <h1> Change Password <span> <a href="users-view.php"> < Back to User List</a></span></h1>
-      
+        <header>
+            <a href="#" class="logo">Change Password</a>
+
+            <br >
+            <div class ="logedin""> Welcome <?php echo ( $_SESSION['First_name']); ?> ! </div>
+
+            <div class="toggleMenu" onmouseover="toggleMenu();"></div>
+            <ul class="navigation">
+
+                <li><a href="Home.php">Home</a></li>
+                <li><a href="usv.php">Back</a></li>
+                <li><a href="logout.php">Log-out</a></li>
+                <li><a href="#"></a></li>
+
+            </ul>
+        </header>
+        <div class="navigation2">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon1"><i class="#"" aria-hidden="true"></i></span>
+                        <span class="title1"></span></a></li>
+
+                <li>
+                    <a href="usv.php">
+                        <span class="icon1"><i class="fa fa-users"" aria-hidden="true"></i></span>
+                        <span class="title1">Users</span></a></li>
+
+
+
+                <li>
+                <li>
+                    <a href="adminorders-view.php">
+                        <span class="icon1"><i class="fa fa-first-order" aria-hidden="true"></i></span>
+                        <span class="title1">orders</span></a></li>
+                <li>
+                    <a href="adminlending-view.php">
+                        <span class="icon1"><i class="fa fa-first-order" aria-hidden="true"></i></span>
+                        <span class="title1">Lendings</span></a></li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon1"><i class="fa fa-film" aria-hidden="true"></i></span>
+                        <span class="title1">Movies</span></a></li>
+
+
+                <li>
+                    <a href="#">
+                        <span class="icon1"><i class="fa fa-anchor" aria-hidden="true"></i></span>
+                        <span class="title1">Categories</span></a></li>
+
+
+                <li>
+                    <a href="#">
+                        <span class="icon1"><i class="fa fa-comments" aria-hidden="true"></i></span>
+                        <span class="title1">Messages</span></a></li>
+
+            </ul>
+        </div>
+
+
        <?php
        
             if(!(empty ($errors))){
                 display_errors($errors);
             }
        ?>
+
         <form action ="change-password.php" method ="post" class="userform">
-            <input type ="hidden" name="user_id"  value="<?php echo $user_id;?>"> 
-        <p>
-                <label for="">First Name:</label>
-                <input type="text" name="First_Name" <?php echo 'value ="'.$First_Name.'"';?>disabled>
-        </p> 
-       
-        <p>
-                <label for = " ">Last Name :</label>
-                <input type = "text" name ="Last_Name"<?php echo 'value ="'.$Last_Name.'"';?> disabled>
-        </p>
 
-        <p>
-                <label for = " ">User Name:</label>
-                <input type = "text" name = "User_Name"<?php echo 'value ="'.$User_Name.'"';?>disabled > 
-        </p>
 
-        <p>
-                <label for = " ">User Type: </label>
-                <input type = "text" name = "User_Type"<?php echo 'value ="'.$User_Type.'"';?>disabled > 
-        </p>
+            <div class="container6">
 
-        <p>
-                <label for = " ">Telephone: </label>
-                <input type = "text" name = "Telephone"<?php echo 'value ="'.$Telephone.'"';?> disabled> 
-        </p>
+                <div class="row100">
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type ="hidden" name="user_id"  value="<?php echo $user_id;?>">
+                            <input type="text" name="First_Name" required <?php echo 'value ="'.$First_Name.'"';?>>
+                            <span class="text">First Name</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="Last_Name" required <?php echo 'value ="'.$Last_Name.'"';?>>
+                            <span class="text">Last Name</span>
 
-        <p>
-                <label for = " ">NIC: </label>
-                <input type = "text" name = "NIC"<?php echo 'value ="'.$NIC.'"';?> disabled> 
-        </p>
-        
-        <p>
-                <label for = " ">Addrerss: </label>
-                <input type = "text" name = "Addrerss"<?php echo 'value ="'.$Addrerss.'"';?>disabled > 
-        </p>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                </div>
 
-        <p>
-                <label for = " ">Email: </label>
-                <input type = "email" name = "Email"<?php echo 'value ="'.$Email.'"';?> disabled> 
-        </p>
 
-        
-        <p>
-				<label for="">New Password:</label>
-                <input type = "password" name = "User_Password" id ="password" > 
-		</p>
+                <div class="row100">
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="User_Type" required="required"<?php echo 'value ="'.$User_Type.'"';?>  >
+                            <span class="text">User Type</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                </div>
 
-        <p>
-				<label for="">Show Password:</label>
-                <input type = "Checkbox" name = "showpassword" id="showpassword" style="width:20px; height:20px;" > 
-		</p>
-        
-        <p>
-                <label for = " ">&nbsp; </label>
-                <button type = "submit" name = "submit">Update </button> 
-        </p>
-             
+                <div class="row100">
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="text" name="NIC" required="required"<?php echo 'value ="'.$NIC.'"';?> >
+                            <span class="text">NIC</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row100">
+                    <div class="col">
+                        <div class="inputBox">
+                            <input type="email" name="Email" required="required" <?php echo 'value ="'.$Email.'"';?> >
+                            <span class="text">Email</span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+
+
+                <div class="row100">
+                <div class="col">
+                    <div class="inputBox">
+                        <input type="password" name="User_Password" id ="password" <?php echo 'value ="'.$password.'"';?>>
+                        <span class="text">New Password:</span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row100">
+                        <div class="col">
+                            <div class="inputBox">
+                                <input type="Checkbox" name="Checkbox" id="showpassword" style="width:20px; height:20px;">
+                                <span class="text">Show Password:</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row100">
+                        <div class="col">
+                            <input type="submit"  name="submit" value="Submit Me">
+                        </div>
+                    </div>
+
         </form>
-    </main> 
- 
+    </section>
 	<script src="js/jquery.js"></script>
 	<script>
 		$(document).ready(function(){
@@ -283,5 +351,16 @@ if(empty($errors)){
 			});
 		});
 	</script>
-    </body> 
+
+    <section class="footgal">
+
+        <ul class="sci">
+            <li><a href="#"><img src="image/facebook.png"></a></li>
+            <li><a href="#"><img src="image/instagram.png"></a></li>
+            <li><a href="#"><img src="image/twitter.png"></a></li>
+        </ul>
+        <h4 class="copyrightText">Copyright @2020 <a href="#">DVD HOUSE Production</a>. All rights deserved</h4>
+
+    </section>
+    </body>
 </html>
