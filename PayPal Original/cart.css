@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+	font-family:'Roboto'.sans-serif;
+	
+}
+
+
+.cart ion-icon
+{
+	
+ 	vertical-align: bottom;
+	font-size:20px;
+	padding-right: 5px;	
+}
+
+.cart a
+{
+	background-color:#00F;
+	color:#FFF;
+	cursor: pointer;
+	text-decoration: none;
+	
+}
+
+
+/*----------------------------CART PAGE----------------*/
+.product1
+
+{ 
+	height: 200vh;
+	background:url(Justice/Guardian2.jpg);
+	background-size:cover;
+	
+}
+
+.products-container
+{
+	max-width: 650px;
+	justify-content:space-around;
+	margin: 0 auto;
+	margin-top: 50px;
+	padding: 20px;
+	color:#fff;
+
+}
+
+.products-container ion-icon
+
+{
+   font-size: 25px;
+   color: blue;
+   margin-left: 10px;
+   margin-right: 10px;
+   cursor: pointer;
+
+}
+
+.product-header{
+	width: 100%;
+	max-width: 650px;
+	display: flex;
+	justify-content: flex-start;
+	border-bottom: 4px solid lightgray;
+	margin: 0 auto;
+	color:#fff;
+}
+
+.product-title
+{
+	width: 50%;
+	color:#fff;
+}
+
+.price{
+	width: 25%;
+	border-bottom: 1px solid lightgray;
+	display: flex;
+	align-items: center;
+	color:#fff;
+}
+
+.quantity
+{
+	width: 25%;
+	border-bottom: 1px solid lightgray;
+	display:  flex;
+	align-items: center;
+	color:#fff;
+}
+
+.total
+{
+	width: 10%;
+	border-bottom: 1px solid lightgray;
+	display:  flex;
+	align-items: center;
+	color:#fff;
+}
+
+.product{
+	width: 80%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 5px 0;
+	border-bottom: 1px solid lightgray;
+	color:#fff;
+}
+
+.product img
+{
+	width:20%;
+	left: 0px;
+}
+
+.price1
+{
+	width: 100%;
+	color:#fff;
+}
+
+
+.basketTotalContainer
+{
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	padding: 10px 0;
+	color:#fff;
+}
+
+.basketTotalTitle
+{
+
+	width: 100%;
+	color:#fff;
+}
+
+.basketTotalContainer{
+
+	width: 100%;
+	color:#fff;
+}
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Shopping Cart</title>
+<link rel="stylesheet" href="cart.css">
+<link rel="stylesheet" href="ProductCart1.css" >
+<link rel="stylesheet" href="ShopMain_NavBar.css" >
+<link rel="stylesheet" href="ShopMain_Section.css" >
+<link rel="stylesheet" href="ShopMain_Gallery.css" >
+</head>
+
+<body>
+
+<header>
+    <a href="#" class="logo">DVD<span>House</span></a>
+    
+    <div class="toggle"></div>
+     <div class="toggleMenu" onmouseover="toggleMenu();"></div>
+    <ul class="navigation">
+ 	<li><a href="ShopMain.html">Home</a></li>
+    <li><a href="ShopMain.html">About</a></li>
+    <li class="cart">
+    <a href="Cartone1.php">
+    <ion-icon name="basket"></ion-icon>Cart<span>0</span>
+    </a></li>
+    
+ </ul>
+ </header>
+ 
+ <section class="banner2">
+ 
+ <div class="contentBx">
+    <h2 class="titleText"> Feel the Entertainment At Your Doorstep</h2>
+    <p class="text">Diana, princess of the Amazons, trained to be an unconquerable warrior. Raised on a sheltered island paradise, when a pilot crashes on their shores and tells of a massive conflict raging in the outside world, Diana leaves her home, convinced she can stop the threat. Fighting alongside man in a war to end all wars, Diana will discover her full powers and her true destiny.<br> Written by ahmetkozan</p>
+    <a href="#destination" class="btn">Popular Movies and Tv Series</a>
+   </div> 
+    <div class="videoBx"> 
+   <video src="../Wonder Woman 1984.mp4" muted autoplay="autoplay" loop="loop" type="mp4"></video>
+     </div> 
+   </section>
+   
+   <section class="about">  
+   
+ <div class="container">
+
+	<div class="box">
+    <h2 class="name">Product Name One</h2>
+    <a href="#" class="buy">Buy Now</a>
+    <div class="circle"></div>
+    <img src="Justice/Arrow2.jpg" class="product">
+    </div>
+    
+    <div class="box">
+    <h2 class="name">Product Name One</h2>
+    <a href="#" class="buy">Buy Now</a>
+    <div class="circle"></div>
+    <img src="Justice/constantine.jpg" class="product">
+    </div>
+    
+    <div class="box">
+    <h2 class="name">Product Name One</h2>
+    <a href="#" class="buy">Buy Now</a>
+    <div class="circle"></div>
+    <img src="Justice/gotham.jpg" class="product">
+    </div>
+</div>
+
+</section>
+
+
+ <section class="about4">
+  
+   
+	<img src="../User1/banner2.jpg" class="fitBg">
+    <div class="box4">
+      <span style="--i:1;"><img src="../Joker/JLA.jpg"></span>
+      <span style="--i:2;"><img src="../Joker/JLA2.jpg"></span>
+      <span style="--i:3;"><img src="../Joker/JLA3.jpg"></span>
+      <span style="--i:4;"><img src="../Joker/JLA4.jpg"></span>
+      <span style="--i:5;"><img src="../Joker/JLA5.jpg"></span>
+      <span style="--i:6;"><img src="../Joker/JLA6.jpg"></span>
+      <span style="--i:7;"><img src="../Joker/JLA7.jpg"></span>
+      <span style="--i:8;"><img src="../Joker/JLA8.jpg"></span>
+    </div>
+    
+     <div class="contentBx4">
+    <h2 class="titleText1"> Feel the Entertainment At Your Doorstep</h2>
+    <p class="text1">Diana, princess of the Amazons, trained to be an unconquerable warrior. Raised on a sheltered island paradise, when a pilot crashes on their shores and tells of a massive conflict raging in the outside world, Diana leaves her home, convinced she can stop the threat. Fighting alongside man in a war to end all wars, Diana will discover her full powers and her true destiny.<br> Written by ahmetkozan</p>
+    <a href="#destination" class="btn">Popular Movies and Tv Series</a>
+   </div>   
+</section>
+
+   <section class="footer">
+   
+   <ul class="sci">
+     <li><a href="#"><img src="../User1/facebook.png"></a></li>
+     <li><a href="#"><img src="../User1/instagram.png"></a></li>
+     <li><a href="#"><img src="../User1/twitter.png"></a></li>
+     </ul>
+   
+   <h4 class="copyrightText">Copyright @2020 <a href="#">DVD HOUSE Production</a>. All rights deserved</h4>
+   </section>
+
+<script src="vanilla-tilt.min.js"></script>
+<script>
+ VanillaTilt.init(document.querySelectorAll(".box"), {
+		max: 25,
+		speed: 400
+	});
+</script>
+
+<script src="ShopCart.js"></script>
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+
+ 
+    <script type="text/javascript"> 
+    function toggleMenu()
+    {
+    const toggleMenu = document.querySelector('.toggleMenu');
+	const navigation = document.querySelector('.navigation');
+    toggleMenu.classList.toggle('active');
+	navigation.classList.toggle('active');
+    }
+    </script>
+
+
+</body>
+</html>

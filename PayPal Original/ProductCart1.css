@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.container
+{
+	position:relative;
+   display: flex;
+   justify-content: center;
+   align-items: center; 
+   flex-wrap:wrap;
+   width: 1200px;
+   transform-style:preserve-3d;
+   padding: 10px;
+   z-index:1;
+   top: -40px;
+}
+
+.container .box
+{
+	position:relative;
+	width: 300px;
+	height: 350px;
+	margin: 40px;
+	background: #232323;
+	border-radius: 20px;
+	transform-style:preserve-3d;
+}
+
+.container .box:before
+{
+	
+	 content:'DVD';
+	 position:absolute;
+	 top: 20px;
+	 left: 20px;
+	 font-size: 6em;
+	 font-weight:900;
+	 color:#FFF;
+	 font-style:italic;
+	 opacity: 0;	
+}
+
+.container .box:after
+{
+	
+ content:'Series';
+ position:absolute;
+ bottom: 20px;
+ left: 20px;
+ font-size: 5em;
+ font-weight: 900;
+ color:#FFF;
+ font-style:italic;
+ opacity: 0;	
+}
+
+.container .box:hover:before,
+.container .box:hover:after
+{
+opacity: 0.04;	
+}
+
+.container .box .name
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	text-align:center;
+	color:#fff;
+	width: 100%;
+	transform-style: preserve-3d;
+	transform:translate(0,0,75px);
+	transition:0.5s;
+	opacity: 0;
+	z-index: 10;
+	
+}
+
+.container .box:hover .name
+{
+	top:40px;
+	opacity: 1;
+}
+
+.container .box .buy
+{
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	text-align:center;
+	color:#fff;
+	background:#333;
+	transform-style: preserve-3d;
+	transform:translate(-50%,0,75px);
+	padding: 10px 25px;
+	border-radius: 30px;
+	text-decoration:none;
+	transition:0.5s;
+	opacity: 0;
+	z-index: 10;
+}
+
+.container .box:hover .buy
+{
+	bottom:30px;
+	opacity: 1;
+}
+
+.container .box .circle
+{
+	position: absolute;
+	top: 90px;
+	left: 60px;
+	color:#fff;
+	width: 160px;
+	height: 160px;
+	background:#fff;
+	transform-style: preserve-3d;
+	transform:translate(-50%,-50%,50px);
+	border-radius: 50%;
+	transition:0.5s;
+	z-index: 10;
+	opacity: 1;
+}
+
+.container .box .product
+{
+	position: absolute;
+	top: 170px;
+	left: 150px;
+	max-width: 300px;
+	width: 150px;
+	height: 150px;
+	transform-style: preserve-3d;
+	transform:translate3d(-50%,-50%,0px) rotate(-15deg);
+	transition:0.5s;
+	z-index: 11;
+}
+
+.container .box:hover .product
+{
+	transform:translate3d(-50%,-50%,100px) rotate(-15deg);
+}
+.container .box:nth-child(1) .circle,
+.container .box:nth-child(1) .buy
+{
+	background:#CF0;	
+}
+
+.container .box:nth-child(2) .circle,
+.container .box:nth-child(2) .buy
+{
+	background:#F00;	
+}
+
+.container .box:nth-child(3) .circle,
+.container .box:nth-child(3) .buy
+{
+	background:#036;	
+}
+
+@media (max-width: 991px)
+{
+	
+	.container
+{
+   width: 1000px;
+   padding: 0px;
+   z-index:1;
+   top: -80px;
+}
+
+}
