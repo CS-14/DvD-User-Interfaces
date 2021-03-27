@@ -90,7 +90,7 @@ require_once('inc/connection.php');
  <?php
            if(!empty($errors)){
             echo '<div class="errmsg">';
-            echo '<b>There were Errors in your form.</b>' ;
+            echo '<b>There are Errors in your form.</b>' ;
             foreach ($errors as $error){
 
                 echo $error . '<br>';
