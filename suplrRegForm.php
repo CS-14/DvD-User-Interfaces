@@ -90,7 +90,7 @@
     <div class="container6">
         
         <div class="row100">
-	<div class="col">
+  <div class="col">
       <div class="inputBox">
        <input type ="text" name ="fname" class = "inputvalues" required >          
          <span class="text">First Name:</span>
@@ -105,16 +105,16 @@
       <span class="line"></span>
     </div>
 </div>
-</div>
 
-    <div class="row100">
-	<div class="col">
+
+<!-- <div class="row100"> -->
+  <div class="col">
       <div class="inputBox">
        <input type ="text" name ="email" class = "inputvalues" required >          
          <span class="text">Email:</span>
       <span class="line"></span>
     </div>
-</div>
+    </div>
 
 <div class="col">
       <div class="inputBox">
@@ -126,7 +126,7 @@
 </div>
 
     <div class="row100">
-	<div class="col">
+  <div class="col">
       <div class="inputBox">
         <input type ="text" name ="addr" class = "inputvalues" required >          
          <span class="text">Address:</span>
@@ -144,11 +144,38 @@
 
  
  <div class="col">
-      <div class="inputBox">
-   <input type ="text" name ="category" class = "inputvalues" required >
+    <div class="inputBox">
+     <!-- <input type ="text" name ="category" class = "inputvalues" required > -->
       <span class="text">Which Category Supply:</span>
-      <span class="line"></span>
+         
+      <!-- <span class="line"></span> -->
     </div>
+    <div >
+        
+    <form action="suplr_registeraction.php" method="post">
+        <p style="color:#FFFFFF; display:inline"> Adventure 
+           <input type="checkbox" value="adv" name ="category[]"/>
+        </p>         
+        <p style="color:#FFFFFF; display:inline"> Family   
+           <input type="checkbox" value="adv" name ="category[]"/>
+        </p> 
+        <p style="color:#FFFFFF; display:inline"> Romance
+           <input type="checkbox" value="adv" name ="category[]"/>
+        </p>
+        <p style="color:#FFFFFF ; display:inline">Thrillerer
+           <input type="checkbox" value="adv" name ="category[]"/>
+        </p></br>  
+        <p style="color:#FFFFFF; display:inline">Musical
+           <input type="checkbox" value="adv" name ="category[]"/>
+        </p>
+        <p style="color:#FFFFFF; display:inline">Animals
+           <input type="checkbox" value="adv" name ="category[]"/>
+        </p>
+            
+                        
+    </form>
+        
+    </div>        
 </div>
 </div>
  
@@ -214,7 +241,7 @@
           
           <li>
           <span><i class="fa fa-envelope-square" aria-hidden="true"></i>  </span>
-          <p><a href="enterprisedvdhouse@gmail.com">Enterprisedvdhouse@gmail.com</a></p>
+          <p><a href="enterprisedvdhouse@gmail.com">enterprisedvdhouse@gmail.com</a></p>
         
           </li><br >
               
@@ -233,9 +260,9 @@
     function toggleMenu()
     {
     const toggleMenu = document.querySelector('.toggleMenu');
-	const navigation = document.querySelector('.navigation');
+  const navigation = document.querySelector('.navigation');
     toggleMenu.classList.toggle('active');
-	navigation.classList.toggle('active');
+  navigation.classList.toggle('active');
     }
     </script>
 
