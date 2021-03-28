@@ -16,13 +16,13 @@ $sid = $_POST['uid'];
 $email = $_POST['email'];
 $tele = $_POST['tele'];
 $Address = $_POST['addr'];
-$cat=$_POST['category'];
+// $cat=$_POST['category'];
 
 
 
 
 
-    if(empty($fname)|| empty($lname) || empty($sid)|| empty($email) ||empty($tele)|| empty($Address)||empty($cat))
+    if(empty($fname)|| empty($lname) || empty($sid)|| empty($email) ||empty($tele)|| empty($Address))
         { echo "Please Check Inputs";}
  
 
@@ -46,8 +46,8 @@ $cat=$_POST['category'];
                 
                     else{
                         // insert data to user table
-                        $query1 = " INSERT INTO supplier (SupplierId,FirstName,LastName,Address,Email,PhoneNo,is_deleted,Categories)
-                        VALUES('{$sid}','{$fname}','{$lname}','{$Address}','{$email}','{$tele}','{0}','{$cat}') ";
+                        $query1 = " INSERT INTO supplier (SupplierId,FirstName,LastName,Address,Email,PhoneNo,is_deleted)
+                        VALUES('{$sid}','{$fname}','{$lname}','{$Address}','{$email}','{$tele}','{0}') ";
 
                         $result1 = mysqli_query($connection , $query1 );
 
