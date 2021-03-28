@@ -214,7 +214,7 @@
           
           <li>
           <span><i class="fa fa-envelope-square" aria-hidden="true"></i>  </span>
-          <p><a href="enterprisedvdhouse@gmail.com">enterprisedvdhouse@gmail.com</a></p>
+          <p><a href="enterprisedvdhouse@gmail.com">Enterprisedvdhouse@gmail.com</a></p>
         
           </li><br >
               
