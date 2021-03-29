@@ -16,6 +16,7 @@ $sid = $_POST['uid'];
 $email = $_POST['email'];
 $tele = $_POST['tele'];
 $Address = $_POST['addr'];
+$category=$_POST['category'];
 // $cat=$_POST['category'];
 
 
@@ -44,33 +45,59 @@ $Address = $_POST['addr'];
                         echo 'Supplier already exists.';
                     }
                 
-                    else{
-                        // insert data to user table
-                        $query1 = " INSERT INTO supplier (SupplierId,FirstName,LastName,Address,Email,PhoneNo,is_deleted)
-                        VALUES('{$sid}','{$fname}','{$lname}','{$Address}','{$email}','{$tele}','{0}') ";
+                else{
 
-                        $result1 = mysqli_query($connection , $query1 );
+                    
+                                // insert data to user table
+                                $query1 = " INSERT INTO supplier (SupplierId,FirstName,LastName,Address,Email,PhoneNo,is_deleted)
+                                VALUES('{$sid}','{$fname}','{$lname}','{$Address}','{$email}','{$tele}','{0}') ";
 
+                                $result1 = mysqli_query($connection , $query1 );
+
+                                
+                                if ($result1){ 
+                                    echo '<script>
+                                        if(!alert("Supplier added successfully")) {
+                                            window.location.href = "http://localhost/movieweb/supplierlist.php"
+                                        }
+                                        </script>'; }
                         
-                        if ($result1){ echo '<script>
-                                if(!alert("Supplier added successfully")) {
-                                    window.location.href = "http://localhost/movieweb/supplierlist.php"
-                                }
-                  </script>'; } 
-                        else{echo "$query1";}
+                                    for($x=0;$x<2;$x++){
+                                                    
+                                        echo $category[$x];
+                                        $query2 = " INSERT INTO supplr_category (Sup_ID,category)
+                                        VALUES('{$sid}','{$category[$x]}') ";
+                                    
+                                        $result2 = mysqli_query($connection , $query2 );
+                                        if($result2){
+                                            echo "success";
+                                        }
+                    
+                    
+                
+                    
+                     } 
+                                
+                                
+                                        
+                                            
+                                        
                             
-                        
-                    }
-               
-           }
+                    
+                   }
     
         }
+}
 }
 // else if(isset($_POST['back_btn']))
 //   {
 //     header("Location: homepage.php");
 //   }
 ?>
+
+
+
+
 
 
 
