@@ -13,7 +13,8 @@
     if(isset($_GET['search'])){
 
         $search = mysqli_real_escape_string($connection,$_GET['search']);
-        $query ="SELECT * FROM supplier WHERE (FirstName LIKE '%{$search}%' OR LastName LIKE '%{$search}%' OR Categories LIKE '%{$search}%' ) AND is_deleted=0 ORDER BY FirstName";
+     
+        $query ="SELECT S.*, C.* FROM supplier S LEFT OUTER JOIN supplr_category C ON S.SupplierId = C.sup_ID WHERE (FirstName LIKE '%{$search}%' OR LastName LIKE '%{$search}%' OR category LIKE '%{$search}%'   ) AND Is_deleted=0 ORDER BY FirstName";
     }
     else{
         $query ="SELECT * FROM supplier WHERE is_deleted=0 ORDER BY FirstName";
@@ -25,7 +26,6 @@
     if( $suppliers){
         while($supplier = mysqli_fetch_assoc($suppliers)){
             $supplierlist .= "<tr>";
-            $supplierlist .= "<td>{$supplier['Categories']}</td>";
             $supplierlist .= "<td>{$supplier['FirstName']}</td>"; 
             $supplierlist .= "<td>{$supplier['LastName']}</td>";
             $supplierlist .= "<td>{$supplier['Email']}</td>";
@@ -154,7 +154,7 @@
     <table class="content-table">
 <thead>
 <tr>
-        <th>Category</th>
+        <!-- <th>Category</th> -->
         <th>First Name </th>
         <th>Last Name </th>
         <th>Email</th>
